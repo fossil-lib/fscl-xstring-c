@@ -37,36 +37,18 @@
 
    (Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0)
 */
-#ifndef TSCL_MOD_H
-#define TSCL_MOD_H
+#ifndef TSCL_XSTR_H
+#define TSCL_XSTR_H
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-/**
- * Adds two integers.
- *
- * This function takes two integer values, 'a' and 'b', and returns their sum.
- *
- * @param a The first integer.
- * @param b The second integer.
- * @return The sum of 'a' and 'b'.
- */
-int add(int a, int b);
-
-/**
- * Subtracts one integer from another.
- *
- * This function takes two integer values, 'a' and 'b', and returns the result of
- * subtracting 'b' from 'a'.
- *
- * @param a The integer from which 'b' will be subtracted.
- * @param b The integer to subtract from 'a'.
- * @return The result of 'a' - 'b'.
- */
-int subtract(int a, int b);
+#include "xstring/cstring.h"
+#include "xstring/letter.h"
+#include "xstring/cipher.h"
+#include "xstring/wygstring.h"
 
 #ifdef __cplusplus
 }
