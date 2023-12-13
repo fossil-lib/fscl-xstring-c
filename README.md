@@ -1,6 +1,16 @@
-# Project Template README
+# TSCL XString Library - **C**
 
-Welcome to the **Project Template** repository! This README provides user-friendly instructions for setting up, compiling, testing, and running a project using the Meson build system on Windows, macOS, and Linux systems. Please note that the Meson build system is required for successfully building this project.
+The TSCL String is a robust and efficient library designed to streamline letter and string manipulation within the C programming language. Tailored to meet the diverse needs of developers working with characters and strings, this library offers a comprehensive set of functions and utilities that simplify common operations, making code development more intuitive and productive.
+
+At its core, the TSCL String provides a collection of meticulously crafted functions for manipulating individual characters, facilitating tasks such as character comparison, conversion, and classification. Developers can seamlessly integrate these functions into their C programs to enhance precision and control over character-based operations.
+
+Beyond individual characters, the TSCL String excels in managing strings, offering an array of functions tailored to tasks such as concatenation, substring extraction, and length determination. Whether working with fixed-size arrays or dynamic memory allocation, this library provides a versatile set of tools to handle strings of varying complexities.
+
+One of the key strengths of the TSCL String lies in its emphasis on efficiency and performance. By optimizing algorithms and minimizing resource consumption, developers can trust the library to deliver swift and reliable results, even when dealing with large datasets or resource-constrained environments.
+
+In addition to its functional prowess, the TSCL String boasts a user-friendly interface, allowing programmers to seamlessly integrate its capabilities into their projects. The documentation accompanying the library serves as a comprehensive guide, offering clear explanations and examples to expedite the learning curve for developers of all experience levels.
+
+Whether you are a seasoned C programmer or a novice exploring the language, the TSCL String stands as a valuable companion, simplifying the intricacies of character and string manipulation and contributing to the overall efficiency and elegance of your C codebase.
 
 ## Who is This For?
 
@@ -21,18 +31,18 @@ Before getting started, make sure you have the following installed:
 
 1. **Create a Wrap File**:
 
-Create a directory named subprojects in the root directory, next create a file named `tscl-x<name>-c.wrap` in the `subprojects` directory of your project with the following content:
+Create a directory named subprojects in the root directory, next create a file named `tscl-xstring-c.wrap` in the `subprojects` directory of your project with the following content:
 
    ```bash
    # ================ #
    #  TSCL Wrap File. #
    # ================ #
    [wrap-git]
-   url = https://github.com/trilobite-stdlib/tscl-<name>-c.git
+   url = https://github.com/trilobite-stdlib/tscl-xstring-c.git
    revision = main
    
    [provide]
-   tscl-x<name>-c = tscl_x<name>_c_dep
+   tscl-xstring-c = tscl_xstring_c_dep
    ```
 
 2. **Integrate Wrap File in Meson Build**:
@@ -42,7 +52,7 @@ Create a directory named subprojects in the root directory, next create a file n
        default_options : ['warning_level=3'])
 
    exe = executable('my_project', 'my_project.c',
-       dependencies : dependency('tscl-x<name>-c'), # add this line
+       dependencies : dependency('tscl-xstring-c'), # add this line
        install : true)
 
    test('basic', exe)

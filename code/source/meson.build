@@ -1,9 +1,9 @@
-code = files('module.c')
+code = files('cstring.c', 'letter.c', 'wygstring.c', 'cipher.c')
 
-lib = static_library('tscl-c',
+lib = static_library('tscl-xstring-c',
     code,
     include_directories: dir)
 
-tscl_c_dep = declare_dependency(
+tscl_xstring_c_dep = declare_dependency(
     link_with: lib,
     include_directories: dir)
