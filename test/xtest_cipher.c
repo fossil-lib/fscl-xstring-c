@@ -7,7 +7,6 @@
 #include "trilobite/xstring/cipher.h" // lib source code
 
 #include <trilobite/xtest.h>   // basic test tools
-#include <trilobite/xmock.h>   // handy mock utilites
 #include <trilobite/xassert.h> // extra asserts
 
 //
