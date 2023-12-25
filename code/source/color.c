@@ -31,6 +31,8 @@
 */
 #include "trilobite/xstring/color.h"
 #include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 // ANSI escape codes for text colors
