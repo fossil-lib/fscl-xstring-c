@@ -38,7 +38,7 @@ const char *morse_code[] = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "..
                             "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",
                             "..-", "...-", ".--", "-..-", "-.--", "--.."};
 
-void cipher_caesar_encrypt(cipher message, int shift) {
+void tscl_cipher_caesar_encrypt(cipher message, int shift) {
     for (int i = 0; message[i] != '\0'; ++i) {
         if (isalpha(message[i])) {
             char base = isupper(message[i]) ? 'A' : 'a';
@@ -47,11 +47,11 @@ void cipher_caesar_encrypt(cipher message, int shift) {
     }
 } // end of func
 
-void cipher_caesar_decrypt(cipher message, int shift) {
-    cipher_caesar_encrypt(message, -shift);
+void tscl_cipher_caesar_decrypt(cipher message, int shift) {
+    tscl_cipher_caesar_encrypt(message, -shift);
 } // end of func
 
-void cipher_atbash_encrypt(cipher message) {
+void tscl_cipher_atbash_encrypt(cipher message) {
     for (int i = 0; message[i] != '\0'; ++i) {
         if (isalpha(message[i])) {
             char base = isupper(message[i]) ? 'A' : 'a';
@@ -60,11 +60,11 @@ void cipher_atbash_encrypt(cipher message) {
     }
 } // end of func
 
-void cipher_atbash_decrypt(cipher message) {
-    cipher_atbash_encrypt(message);
+void tscl_cipher_atbash_decrypt(cipher message) {
+    tscl_cipher_atbash_encrypt(message);
 } // end of func
 
-void cipher_substitution_encrypt(cipher message, const_cipher key) {
+void tscl_cipher_substitution_encrypt(cipher message, const_cipher key) {
     for (int i = 0; message[i] != '\0'; ++i) {
         if (isalpha(message[i])) {
             char base = isupper(message[i]) ? 'A' : 'a';
@@ -73,7 +73,7 @@ void cipher_substitution_encrypt(cipher message, const_cipher key) {
     }
 } // end of func
 
-void cipher_substitution_decrypt(cipher message, const_cipher key) {
+void tscl_cipher_substitution_decrypt(cipher message, const_cipher key) {
     char decrypt_key[26];
 
     // Create the decryption key by reversing the original key
@@ -81,10 +81,10 @@ void cipher_substitution_decrypt(cipher message, const_cipher key) {
         decrypt_key[key[i] - 'A'] = 'A' + i;
     }
 
-    cipher_substitution_encrypt(message, decrypt_key);
+    tscl_cipher_substitution_encrypt(message, decrypt_key);
 } // end of func
 
-void cipher_haxor_encrypt(cipher message) {
+void tscl_cipher_haxor_encrypt(cipher message) {
     for (int i = 0; message[i] != '\0'; ++i) {
         switch (message[i]) {
             case 'a':
@@ -115,12 +115,12 @@ void cipher_haxor_encrypt(cipher message) {
     }
 } // end of func
 
-void cipher_haxor_decrypt(cipher message) {
+void tscl_cipher_haxor_decrypt(cipher message) {
     // The Haxor cipher is symmetric, decryption is the same as encryption
-    cipher_haxor_encrypt(message);
+    tscl_cipher_haxor_encrypt(message);
 } // end of func
 
-void cipher_morse_encrypt(cipher message) {
+void tscl_cipher_morse_encrypt(cipher message) {
     char result[1000];  // Adjust the size accordingly
 
     for (int i = 0; message[i] != '\0'; ++i) {
@@ -136,7 +136,7 @@ void cipher_morse_encrypt(cipher message) {
     strcpy(message, result);
 } // end of func
 
-void cipher_morse_decrypt(cipher message) {
+void tscl_cipher_morse_decrypt(cipher message) {
     char *token;
     char result[1000];  // Adjust the size accordingly
 
@@ -159,7 +159,7 @@ void cipher_morse_decrypt(cipher message) {
     strcpy(message, result);
 } // end of func
 
-void cipher_vigenere_encrypt(cipher message, const_cipher key) {
+void tscl_cipher_vigenere_encrypt(cipher message, const_cipher key) {
     int messageLen = strlen(message);
     int keyLen = strlen(key);
 
@@ -174,7 +174,7 @@ void cipher_vigenere_encrypt(cipher message, const_cipher key) {
     }
 }
 
-void cipher_vigenere_decrypt(cipher message, const_cipher key) {
+void tscl_cipher_vigenere_decrypt(cipher message, const_cipher key) {
     int messageLen = strlen(message);
     int keyLen = strlen(key);
 
@@ -189,7 +189,7 @@ void cipher_vigenere_decrypt(cipher message, const_cipher key) {
     }
 }
 
-void cipher_rail_fence_encrypt(cipher message, int rails) {
+void tscl_cipher_rail_fence_encrypt(cipher message, int rails) {
     int messageLen = strlen(message);
     char encrypted[1000]; // Adjust the size accordingly
 
@@ -204,7 +204,7 @@ void cipher_rail_fence_encrypt(cipher message, int rails) {
     strcpy(message, encrypted);
 }
 
-void cipher_rail_fence_decrypt(cipher message, int rails) {
+void tscl_cipher_rail_fence_decrypt(cipher message, int rails) {
     int messageLen = strlen(message);
     char decrypted[1000]; // Adjust the size accordingly
 
@@ -219,7 +219,7 @@ void cipher_rail_fence_decrypt(cipher message, int rails) {
     strcpy(message, decrypted);
 }
 
-void cipher_rot13_encrypt(cipher message) {
+void tscl_cipher_rot13_encrypt(cipher message) {
     for (int i = 0; message[i] != '\0'; ++i) {
         if (isalpha(message[i])) {
             char base = isupper(message[i]) ? 'A' : 'a';
@@ -228,9 +228,9 @@ void cipher_rot13_encrypt(cipher message) {
     }
 }
 
-void cipher_rot13_decrypt(cipher message) {
+void tscl_cipher_rot13_decrypt(cipher message) {
     // The Rot13 cipher is symmetric, decryption is the same as encryption
-    cipher_rot13_encrypt(message);
+    tscl_cipher_rot13_encrypt(message);
 }
 
 enum {SIZE = 5};
@@ -272,7 +272,7 @@ void get_playfair_pos(char keyTable[SIZE][SIZE], char ch, int* row, int* col) {
     }
 }
 
-void cipher_playfair_encrypt(cipher message, cipher key, cipher encrypted) {
+void tscl_cipher_playfair_encrypt(cipher message, cipher key, cipher encrypted) {
     char keyTable[SIZE][SIZE];
     prepare_playfair_key(key, keyTable);
 
@@ -299,7 +299,7 @@ void cipher_playfair_encrypt(cipher message, cipher key, cipher encrypted) {
     encrypted[index] = '\0';
 }
 
-void cipher_playfair_decrypt(cipher message, cipher key, cipher decrypted) {
+void tscl_cipher_playfair_decrypt(cipher message, cipher key, cipher decrypted) {
     char keyTable[SIZE][SIZE];
     prepare_playfair_key(key, keyTable);
 

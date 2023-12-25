@@ -35,7 +35,7 @@
 #include <string.h>
 #include <ctype.h>
 
-int letter_is_vowel(letter c) {
+int tscl_letter_is_vowel(letter c) {
     c = tolower(c);  // Convert to lowercase for case-insensitivity
     switch (c) {
         case 'a':
@@ -49,19 +49,19 @@ int letter_is_vowel(letter c) {
     }
 } // end of func
 
-int letter_is_consonant(letter c) {
-    return isalpha(c) && !letter_is_vowel(c);
+int tscl_letter_is_consonant(letter c) {
+    return isalpha(c) && !tscl_letter_is_vowel(c);
 } // end of func
 
-letter letter_to_lowercase(letter c) {
+letter tscl_letter_to_lowercase(letter c) {
     return tolower(c);
 } // end of func
 
-letter letter_to_uppercase(letter c) {
+letter tscl_letter_to_uppercase(letter c) {
     return toupper(c);
 } // end of func
 
-size_t letter_count_in_string(const_letter *str, letter target) {
+size_t tscl_letter_count_in_string(const_letter *str, letter target) {
     size_t count = 0;
     while (*str) {
         if (*str == target) {
@@ -72,23 +72,23 @@ size_t letter_count_in_string(const_letter *str, letter target) {
     return count;
 } // end of func
 
-int letter_is_digit(letter c) {
+int tscl_letter_is_digit(letter c) {
     return isdigit(c);
 } // end of func
 
-int letter_is_alnum(letter c) {
+int tscl_letter_is_alnum(letter c) {
     return isalnum(c);
 } // end of func
 
-int letter_is_alpha(letter c) {
+int tscl_letter_is_alpha(letter c) {
     return isalpha(c);
 } // end of func
 
-letter letter_toggle_case(letter c) {
+letter tscl_letter_toggle_case(letter c) {
     return islower(c) ? toupper(c) : tolower(c);
 } // end of func
 
-letter letter_rot13(letter c) {
+letter tscl_letter_rot13(letter c) {
     if (isalpha(c)) {
         letter base = islower(c) ? 'a' : 'A';
         return (c - base + 13) % 26 + base;
@@ -96,7 +96,7 @@ letter letter_rot13(letter c) {
     return c;
 } // end of func
 
-void letter_remove_char(letter *str, letter target) {
+void tscl_letter_remove_char(letter *str, letter target) {
     if (str == NULL)
         return;
 
@@ -110,7 +110,7 @@ void letter_remove_char(letter *str, letter target) {
     *dest = '\0';
 } // end of func
 
-void letter_replace_char(letter *str, letter target, letter replacement) {
+void tscl_letter_replace_char(letter *str, letter target, letter replacement) {
     if (str == NULL)
         return;
 
@@ -122,7 +122,7 @@ void letter_replace_char(letter *str, letter target, letter replacement) {
     }
 } // end of func
 
-void letter_trim_whitespace(letter *str) {
+void tscl_letter_trim_whitespace(letter *str) {
     if (str == NULL)
         return;
 
@@ -146,7 +146,7 @@ void letter_trim_whitespace(letter *str) {
     *(end + 1) = '\0';
 } // end of func
 
-void letter_reverse_string(letter *str) {
+void tscl_letter_reverse_string(letter *str) {
     if (str == NULL)
         return;
 
@@ -167,7 +167,7 @@ void letter_reverse_string(letter *str) {
     }
 } // end of func
 
-letter *letter_find_first(letter *str, letter target) {
+letter *tscl_letter_find_first(letter *str, letter target) {
     while (*str != '\0') {
         if (*str == target) {
             return str;
@@ -177,7 +177,7 @@ letter *letter_find_first(letter *str, letter target) {
     return NULL;
 } // end of func
 
-letter *letter_find_last(letter *str, letter target) {
+letter *tscl_letter_find_last(letter *str, letter target) {
     letter *last_occurrence = NULL;
     while (*str != '\0') {
         if (*str == target) {
@@ -188,7 +188,7 @@ letter *letter_find_last(letter *str, letter target) {
     return last_occurrence;
 } // end of func
 
-letter **letter_split_string(const_letter *str, letter delimiter, size_t *num_tokens) {
+letter **tscl_letter_split_string(const_letter *str, letter delimiter, size_t *num_tokens) {
     if (str == NULL)
         return NULL;
 
@@ -239,7 +239,7 @@ letter **letter_split_string(const_letter *str, letter delimiter, size_t *num_to
     return tokens;
 } // end of func
 
-letter *letter_join_strings(const letter **tokens, size_t num_tokens, letter delimiter) {
+letter *tscl_letter_join_strings(const letter **tokens, size_t num_tokens, letter delimiter) {
     if (tokens == NULL || num_tokens == 0)
         return NULL;
 
@@ -270,7 +270,7 @@ letter *letter_join_strings(const letter **tokens, size_t num_tokens, letter del
     return result;
 } // end of func
 
-void letter_char_frequency(const_letter *str, int *frequency) {
+void tscl_letter_char_frequency(const_letter *str, int *frequency) {
     if (str == NULL || frequency == NULL)
         return;
 
@@ -285,7 +285,7 @@ void letter_char_frequency(const_letter *str, int *frequency) {
 } // end of func
 
 // Function to check if a character is a punctuation mark
-int letter_is_punctuation(letter c) {
+int tscl_letter_is_punctuation(letter c) {
     return (c == '!' || c == '"' || c == '#' || c == '$' || c == '%' || c == '&' ||
             c == '\'' || c == '(' || c == ')' || c == '*' || c == '+' || c == ',' ||
             c == '-' || c == '.' || c == '/' || c == ':' || c == ';' || c == '<' ||
@@ -295,12 +295,12 @@ int letter_is_punctuation(letter c) {
 } // end of func
 
 // Function to check if a character is a whitespace character
-int letter_is_whitespace(letter c) {
+int tscl_letter_is_whitespace(letter c) {
     return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f' || c == '\v');
 } // end of func
 
 // Function to remove all occurrences of punctuation marks from a string
-void letter_remove_punctuation(letter *str) {
+void tscl_letter_remove_punctuation(letter *str) {
     if (str == NULL) {
         return;
     }
@@ -309,7 +309,7 @@ void letter_remove_punctuation(letter *str) {
     size_t write_index = 0;
 
     for (size_t read_index = 0; read_index < len; ++read_index) {
-        if (!letter_is_punctuation(str[read_index])) {
+        if (!tscl_letter_is_punctuation(str[read_index])) {
             str[write_index++] = str[read_index];
         }
     }
@@ -318,7 +318,7 @@ void letter_remove_punctuation(letter *str) {
 } // end of func
 
 // Function to remove all occurrences of whitespace characters from a string
-void letter_remove_whitespace(letter *str) {
+void tscl_letter_remove_whitespace(letter *str) {
     if (str == NULL) {
         return;
     }
@@ -327,7 +327,7 @@ void letter_remove_whitespace(letter *str) {
     size_t write_index = 0;
 
     for (size_t read_index = 0; read_index < len; ++read_index) {
-        if (!letter_is_whitespace(str[read_index])) {
+        if (!tscl_letter_is_whitespace(str[read_index])) {
             str[write_index++] = str[read_index];
         }
     }
@@ -336,7 +336,7 @@ void letter_remove_whitespace(letter *str) {
 } // end of func
 
 // Function to replace all occurrences of whitespace characters with a specified character in a string
-void letter_replace_whitespace(letter *str, letter replacement) {
+void tscl_letter_replace_whitespace(letter *str, letter replacement) {
     if (str == NULL) {
         return;
     }
@@ -344,14 +344,14 @@ void letter_replace_whitespace(letter *str, letter replacement) {
     size_t len = strlen(str);
 
     for (size_t index = 0; index < len; ++index) {
-        if (letter_is_whitespace(str[index])) {
+        if (tscl_letter_is_whitespace(str[index])) {
             str[index] = replacement;
         }
     }
 } // end of func
 
 // Function to remove consecutive duplicate characters from a string
-void letter_remove_consecutive_duplicates(letter *str) {
+void tscl_letter_remove_consecutive_duplicates(letter *str) {
     if (str == NULL) {
         return;
     }
@@ -369,7 +369,7 @@ void letter_remove_consecutive_duplicates(letter *str) {
 } // end of func
 
 // Function to capitalize the first letter of each word in a string
-void letter_capitalize_words(letter *str) {
+void tscl_letter_capitalize_words(letter *str) {
     if (str == NULL) {
         return;
     }
@@ -378,12 +378,12 @@ void letter_capitalize_words(letter *str) {
     int capitalize_next = 1; // Flag to indicate whether the next character should be capitalized
 
     for (size_t index = 0; index < len; ++index) {
-        if (letter_is_alpha(str[index])) {
+        if (tscl_letter_is_alpha(str[index])) {
             if (capitalize_next) {
-                str[index] = letter_to_uppercase(str[index]);
+                str[index] = tscl_letter_to_uppercase(str[index]);
                 capitalize_next = 0;
             } else {
-                str[index] = letter_to_lowercase(str[index]);
+                str[index] = tscl_letter_to_lowercase(str[index]);
             }
         } else {
             capitalize_next = 1;
@@ -392,22 +392,22 @@ void letter_capitalize_words(letter *str) {
 } // end of func
 
 // Function to check if a character is a printable ASCII character
-int letter_is_printable(letter c) {
+int tscl_letter_is_printable(letter c) {
     return (c >= 32 && c <= 126);
 } // end of func
 
 // Function to convert a character to its ASCII value
-int letter_to_ascii(letter c) {
+int tscl_letter_to_ascii(letter c) {
     return (int)c;
 } // end of func
 
 // Function to convert an ASCII value to a character
-letter letter_ascii_to_letter(ascii ascii_value) {
+letter tscl_letter_ascii_to_letter(ascii ascii_value) {
     return (letter)ascii_value;
 } // end of func
 
 // Function to shift the characters in a string by a specified amount
-void letter_shift_string(letter *str, int shift_amount) {
+void tscl_letter_shift_string(letter *str, int shift_amount) {
     if (str == NULL) {
         return;
     }
@@ -415,6 +415,6 @@ void letter_shift_string(letter *str, int shift_amount) {
     size_t len = strlen(str);
 
     for (size_t index = 0; index < len; ++index) {
-        str[index] = letter_ascii_to_letter(letter_to_ascii(str[index]) + shift_amount);
+        str[index] = tscl_letter_ascii_to_letter(tscl_letter_to_ascii(str[index]) + shift_amount);
     }
 } // end of func
