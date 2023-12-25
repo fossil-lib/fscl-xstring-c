@@ -39,9 +39,9 @@ XTEST_CASE(letter_let_tscl_letter_to_uppercase) {
 // Test case for letter_count_in_string
 XTEST_CASE(letter_let_letter_count_in_string) {
     char str[] = "hello, world!";
-    TEST_ASSERT_EQUAL_INT(3, letter_count_in_string(str, 'l'));
-    TEST_ASSERT_EQUAL_INT(0, letter_count_in_string(str, 'z'));
-    TEST_ASSERT_EQUAL_INT(2, letter_count_in_string(str, 'o')); // Additional test
+    TEST_ASSERT_EQUAL_INT(3, tscl_letter_count_in_string(str, 'l'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_count_in_string(str, 'z'));
+    TEST_ASSERT_EQUAL_INT(2, tscl_letter_count_in_string(str, 'o')); // Additional test
 }
 
 // Test case for tscl_letter_is_alpha
@@ -79,12 +79,12 @@ XTEST_CASE(letter_let_tscl_letter_to_uppercase_additional) {
 
 XTEST_CASE(letter_let_letter_count_in_string_additional) {
     char str[] = "hello, world!";
-    TEST_ASSERT_EQUAL_INT(3, letter_count_in_string(str, 'l'));
-    TEST_ASSERT_EQUAL_INT(0, letter_count_in_string(str, 'z'));
-    TEST_ASSERT_EQUAL_INT(1, letter_count_in_string(str, 'o'));
-    TEST_ASSERT_EQUAL_INT(2, letter_count_in_string(str, 'o'));
-    TEST_ASSERT_EQUAL_INT(0, letter_count_in_string(str, '0'));
-    TEST_ASSERT_EQUAL_INT(0, letter_count_in_string(str, ','));
+    TEST_ASSERT_EQUAL_INT(3, tscl_letter_count_in_string(str, 'l'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_count_in_string(str, 'z'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_count_in_string(str, 'o'));
+    TEST_ASSERT_EQUAL_INT(2, tscl_letter_count_in_string(str, 'o'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_count_in_string(str, '0'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_count_in_string(str, ','));
 }
 
 XTEST_CASE(letter_let_tscl_letter_is_alpha_additional) {
@@ -120,71 +120,71 @@ XTEST_CASE(test_is_whitespace) {
 // Test cases for letter_remove_punctuation
 XTEST_CASE(test_remove_punctuation) {
     letter str1[] = "Hello, World!";
-    letter_remove_punctuation(str1);
+    tscl_letter_remove_punctuation(str1);
     TEST_ASSERT_EQUAL_STRING("Hello World", str1);
 
     letter str2[] = "Keep, This, Punctuation!   ";
-    letter_remove_punctuation(str2);
+    tscl_letter_remove_punctuation(str2);
     TEST_ASSERT_EQUAL_STRING("Keep This Punctuation   ", str2);
 
     letter str3[] = "!@#$%^&*()";
-    letter_remove_punctuation(str3);
+    tscl_letter_remove_punctuation(str3);
     TEST_ASSERT_EQUAL_STRING("", str3);
 }
 
 // Test cases for letter_remove_whitespace
 XTEST_CASE(test_remove_whitespace) {
     letter str1[] = " Hello  World ";
-    letter_remove_whitespace(str1);
+    tscl_letter_remove_whitespace(str1);
     TEST_ASSERT_EQUAL_STRING("HelloWorld", str1);
 
     letter str2[] = "\tRemove\tTabs\n";
-    letter_remove_whitespace(str2);
+    tscl_letter_remove_whitespace(str2);
     TEST_ASSERT_EQUAL_STRING("RemoveTabs", str2);
 
     letter str3[] = "  \r\f  ";
-    letter_remove_whitespace(str3);
+    tscl_letter_remove_whitespace(str3);
     TEST_ASSERT_EQUAL_STRING("", str3);
 }
 
 // Test cases for letter_replace_whitespace
 XTEST_CASE(test_replace_whitespace) {
     letter str1[] = "Replace Spaces";
-    letter_replace_whitespace(str1, '_');
+    tscl_letter_replace_whitespace(str1, '_');
     TEST_ASSERT_EQUAL_STRING("Replace_Spaces", str1);
 
     letter str2[] = "KeepTabs\tSeparateLines\n";
-    letter_replace_whitespace(str2, '_');
+    tscl_letter_replace_whitespace(str2, '_');
     TEST_ASSERT_EQUAL_STRING("KeepTabs_SeparateLines_", str2);
 }
 
 // Test cases for letter_remove_consecutive_duplicates
 XTEST_CASE(test_remove_consecutive_duplicates) {
     letter str1[] = "aaabbbccc";
-    letter_remove_consecutive_duplicates(str1);
+    tscl_letter_remove_consecutive_duplicates(str1);
     TEST_ASSERT_EQUAL_STRING("abc", str1);
 
     letter str2[] = "1223334444";
-    letter_remove_consecutive_duplicates(str2);
+    tscl_letter_remove_consecutive_duplicates(str2);
     TEST_ASSERT_EQUAL_STRING("1234", str2);
 
     letter str3[] = "aabbcc";
-    letter_remove_consecutive_duplicates(str3);
+    tscl_letter_remove_consecutive_duplicates(str3);
     TEST_ASSERT_EQUAL_STRING("abc", str3);
 }
 
 // Test cases for letter_capitalize_words
 XTEST_CASE(test_capitalize_words) {
     letter str1[] = "hello world";
-    letter_capitalize_words(str1);
+    tscl_letter_capitalize_words(str1);
     TEST_ASSERT_EQUAL_STRING("Hello World", str1);
 
     letter str2[] = "all CAPS";
-    letter_capitalize_words(str2);
+    tscl_letter_capitalize_words(str2);
     TEST_ASSERT_EQUAL_STRING("All CAPS", str2);
 
     letter str3[] = "the Quick Brown FOX";
-    letter_capitalize_words(str3);
+    tscl_letter_capitalize_words(str3);
     TEST_ASSERT_EQUAL_STRING("The Quick Brown FOX", str3);
 }
 
@@ -206,23 +206,23 @@ XTEST_CASE(test_to_ascii) {
 
 // Test cases for letter_ascii_to_letter
 XTEST_CASE(test_ascii_to_letter) {
-    TEST_ASSERT_EQUAL_INT('A', letter_ascii_to_letter('A'));
-    TEST_ASSERT_EQUAL_INT(' ', letter_ascii_to_letter(' '));
-    TEST_ASSERT_EQUAL_INT('~', letter_ascii_to_letter('~'));
+    TEST_ASSERT_EQUAL_INT('A', tscl_letter_ascii_to_letter('A'));
+    TEST_ASSERT_EQUAL_INT(' ', tscl_letter_ascii_to_letter(' '));
+    TEST_ASSERT_EQUAL_INT('~', tscl_letter_ascii_to_letter('~'));
 }
 
 // Test cases for letter_shift_string
 XTEST_CASE(test_shift_string) {
     letter str1[] = "Hello";
-    letter_shift_string(str1, 1);
+    tscl_letter_shift_string(str1, 1);
     TEST_ASSERT_EQUAL_STRING("Ifmmp", str1);
 
     letter str2[] = "Rotate by 5";
-    letter_shift_string(str2, -5);
+    tscl_letter_shift_string(str2, -5);
     TEST_ASSERT_EQUAL_STRING("Mjyjyd yn 5", str2);
 
     letter str3[] = "1234";
-    letter_shift_string(str3, 3);
+    tscl_letter_shift_string(str3, 3);
     TEST_ASSERT_EQUAL_STRING("4567", str3);
 }
 
