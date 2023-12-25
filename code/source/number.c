@@ -126,7 +126,6 @@ int tscl_string_expression_to_numeric(cstring expression) {
     int result = 0;
     int currentNumber = 0;
     int currentPriority = 0;
-    int lastNumber = 0;
     cstring currentOperator = "+";
 
     size_t len = strlen(expression);
@@ -154,7 +153,6 @@ int tscl_string_expression_to_numeric(cstring expression) {
             // Reset variables for the next number/operator
             currentNumber = 0;
             currentPriority = 0;
-            lastNumber = 0;
             currentOperator = "+";
         } else if (isdigit((unsigned char)expression[i])) {
             // Accumulate digits for the current number
