@@ -35,7 +35,7 @@
 
 typedef struct {
     cstring word;
-    long int value;
+    long long int value;
 } NumberMapping;
 
 typedef struct {
