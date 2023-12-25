@@ -12,28 +12,28 @@
 //
 // XUNIT TEST CASES
 //
-// Test case for letter_is_vowel
-XTEST_CASE(letter_let_letter_is_vowel) {
-    TEST_ASSERT_EQUAL_INT(1, letter_is_vowel('a'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_vowel('A'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_vowel('b'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_vowel('Z')); // Additional test
+// Test case for tscl_letter_is_vowel
+XTEST_CASE(letter_let_tscl_letter_is_vowel) {
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_vowel('a'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_vowel('A'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_vowel('b'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_vowel('Z')); // Additional test
 }
 
-// Test case for letter_to_lowercase
-XTEST_CASE(letter_let_letter_to_lowercase) {
-    TEST_ASSERT_EQUAL_CHAR('a', letter_to_lowercase('A'));
-    TEST_ASSERT_EQUAL_CHAR('z', letter_to_lowercase('Z'));
-    TEST_ASSERT_EQUAL_CHAR('3', letter_to_lowercase('3'));
-    TEST_ASSERT_EQUAL_CHAR('a', letter_to_lowercase('a')); // Additional test
+// Test case for tscl_letter_to_lowercase
+XTEST_CASE(letter_let_tscl_letter_to_lowercase) {
+    TEST_ASSERT_EQUAL_CHAR('a', tscl_letter_to_lowercase('A'));
+    TEST_ASSERT_EQUAL_CHAR('z', tscl_letter_to_lowercase('Z'));
+    TEST_ASSERT_EQUAL_CHAR('3', tscl_letter_to_lowercase('3'));
+    TEST_ASSERT_EQUAL_CHAR('a', tscl_letter_to_lowercase('a')); // Additional test
 }
 
-// Test case for letter_to_uppercase
-XTEST_CASE(letter_let_letter_to_uppercase) {
-    TEST_ASSERT_EQUAL_CHAR('A', letter_to_uppercase('a'));
-    TEST_ASSERT_EQUAL_CHAR('Z', letter_to_uppercase('z'));
-    TEST_ASSERT_EQUAL_CHAR('3', letter_to_uppercase('3'));
-    TEST_ASSERT_EQUAL_CHAR('A', letter_to_uppercase('A')); // Additional test
+// Test case for tscl_letter_to_uppercase
+XTEST_CASE(letter_let_tscl_letter_to_uppercase) {
+    TEST_ASSERT_EQUAL_CHAR('A', tscl_letter_to_uppercase('a'));
+    TEST_ASSERT_EQUAL_CHAR('Z', tscl_letter_to_uppercase('z'));
+    TEST_ASSERT_EQUAL_CHAR('3', tscl_letter_to_uppercase('3'));
+    TEST_ASSERT_EQUAL_CHAR('A', tscl_letter_to_uppercase('A')); // Additional test
 }
 
 // Test case for letter_count_in_string
@@ -44,37 +44,37 @@ XTEST_CASE(letter_let_letter_count_in_string) {
     TEST_ASSERT_EQUAL_INT(2, letter_count_in_string(str, 'o')); // Additional test
 }
 
-// Test case for letter_is_alpha
-XTEST_CASE(letter_let_letter_is_alpha) {
-    TEST_ASSERT_EQUAL_INT(1, letter_is_alpha('a'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_alpha('A'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_alpha('z'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_alpha('Z'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_alpha('0'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_alpha(',')); // Additional test
+// Test case for tscl_letter_is_alpha
+XTEST_CASE(letter_let_tscl_letter_is_alpha) {
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_alpha('a'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_alpha('A'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_alpha('z'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_alpha('Z'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_alpha('0'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_alpha(',')); // Additional test
 }
 
-XTEST_CASE(letter_let_letter_is_vowel_additional) {
-    TEST_ASSERT_EQUAL_INT(0, letter_is_vowel('b'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_vowel('B'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_vowel('e'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_vowel('E'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_vowel('1'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_vowel(','));
+XTEST_CASE(letter_let_tscl_letter_is_vowel_additional) {
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_vowel('b'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_vowel('B'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_vowel('e'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_vowel('E'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_vowel('1'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_vowel(','));
 }
 
-XTEST_CASE(letter_let_letter_to_lowercase_additional) {
-    TEST_ASSERT_EQUAL_CHAR('A', letter_to_lowercase('A'));
-    TEST_ASSERT_EQUAL_CHAR('z', letter_to_lowercase('Z'));
-    TEST_ASSERT_EQUAL_CHAR('3', letter_to_lowercase('3'));
-    TEST_ASSERT_EQUAL_CHAR('@', letter_to_lowercase('@'));
+XTEST_CASE(letter_let_tscl_letter_to_lowercase_additional) {
+    TEST_ASSERT_EQUAL_CHAR('A', tscl_letter_to_lowercase('A'));
+    TEST_ASSERT_EQUAL_CHAR('z', tscl_letter_to_lowercase('Z'));
+    TEST_ASSERT_EQUAL_CHAR('3', tscl_letter_to_lowercase('3'));
+    TEST_ASSERT_EQUAL_CHAR('@', tscl_letter_to_lowercase('@'));
 }
 
-XTEST_CASE(letter_let_letter_to_uppercase_additional) {
-    TEST_ASSERT_EQUAL_CHAR('a', letter_to_uppercase('a'));
-    TEST_ASSERT_EQUAL_CHAR('Z', letter_to_uppercase('z'));
-    TEST_ASSERT_EQUAL_CHAR('3', letter_to_uppercase('3'));
-    TEST_ASSERT_EQUAL_CHAR('@', letter_to_uppercase('@'));
+XTEST_CASE(letter_let_tscl_letter_to_uppercase_additional) {
+    TEST_ASSERT_EQUAL_CHAR('a', tscl_letter_to_uppercase('a'));
+    TEST_ASSERT_EQUAL_CHAR('Z', tscl_letter_to_uppercase('z'));
+    TEST_ASSERT_EQUAL_CHAR('3', tscl_letter_to_uppercase('3'));
+    TEST_ASSERT_EQUAL_CHAR('@', tscl_letter_to_uppercase('@'));
 }
 
 XTEST_CASE(letter_let_letter_count_in_string_additional) {
@@ -87,34 +87,34 @@ XTEST_CASE(letter_let_letter_count_in_string_additional) {
     TEST_ASSERT_EQUAL_INT(0, letter_count_in_string(str, ','));
 }
 
-XTEST_CASE(letter_let_letter_is_alpha_additional) {
-    TEST_ASSERT_EQUAL_INT(1, letter_is_alpha('a'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_alpha('A'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_alpha('z'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_alpha('Z'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_alpha('0'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_alpha(','));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_alpha('@'));
+XTEST_CASE(letter_let_tscl_letter_is_alpha_additional) {
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_alpha('a'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_alpha('A'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_alpha('z'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_alpha('Z'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_alpha('0'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_alpha(','));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_alpha('@'));
 }
 
-// Test cases for letter_is_punctuation
+// Test cases for tscl_letter_is_punctuation
 XTEST_CASE(test_is_punctuation) {
-    TEST_ASSERT_EQUAL_INT(1, letter_is_punctuation('!'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_punctuation(','));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_punctuation('.'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_punctuation('?'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_punctuation('A'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_punctuation(' '));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_punctuation('!'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_punctuation(','));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_punctuation('.'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_punctuation('?'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_punctuation('A'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_punctuation(' '));
 }
 
-// Test cases for letter_is_whitespace
+// Test cases for tscl_letter_is_whitespace
 XTEST_CASE(test_is_whitespace) {
-    TEST_ASSERT_EQUAL_INT(1, letter_is_whitespace(' '));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_whitespace('\t'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_whitespace('\n'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_whitespace('\r'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_whitespace('A'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_whitespace('!'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_whitespace(' '));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_whitespace('\t'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_whitespace('\n'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_whitespace('\r'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_whitespace('A'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_whitespace('!'));
 }
 
 // Test cases for letter_remove_punctuation
@@ -188,20 +188,20 @@ XTEST_CASE(test_capitalize_words) {
     TEST_ASSERT_EQUAL_STRING("The Quick Brown FOX", str3);
 }
 
-// Test cases for letter_is_printable
+// Test cases for tscl_letter_is_printable
 XTEST_CASE(test_is_printable) {
-    TEST_ASSERT_EQUAL_INT(1, letter_is_printable('A'));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_printable(' '));
-    TEST_ASSERT_EQUAL_INT(1, letter_is_printable('~'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_printable('\t'));
-    TEST_ASSERT_EQUAL_INT(0, letter_is_printable('\n'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_printable('A'));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_printable(' '));
+    TEST_ASSERT_EQUAL_INT(1, tscl_letter_is_printable('~'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_printable('\t'));
+    TEST_ASSERT_EQUAL_INT(0, tscl_letter_is_printable('\n'));
 }
 
-// Test cases for letter_to_ascii
+// Test cases for tscl_letter_to_ascii
 XTEST_CASE(test_to_ascii) {
-    TEST_ASSERT_EQUAL_INT('A', letter_to_ascii('A'));
-    TEST_ASSERT_EQUAL_INT(' ', letter_to_ascii(' '));
-    TEST_ASSERT_EQUAL_INT('~', letter_to_ascii('~'));
+    TEST_ASSERT_EQUAL_INT('A', tscl_letter_to_ascii('A'));
+    TEST_ASSERT_EQUAL_INT(' ', tscl_letter_to_ascii(' '));
+    TEST_ASSERT_EQUAL_INT('~', tscl_letter_to_ascii('~'));
 }
 
 // Test cases for letter_ascii_to_letter
@@ -231,10 +231,10 @@ XTEST_CASE(test_shift_string) {
 //
 XTEST_GROUP_DEFINE(test_letter_group) {
     XTEST_RUN_UNIT(letter_let_letter_count_in_string, runner);
-    XTEST_RUN_UNIT(letter_let_letter_is_vowel,        runner);
-    XTEST_RUN_UNIT(letter_let_letter_to_lowercase,    runner);
-    XTEST_RUN_UNIT(letter_let_letter_to_uppercase,    runner);
-    XTEST_RUN_UNIT(letter_let_letter_is_alpha,        runner);
+    XTEST_RUN_UNIT(letter_let_tscl_letter_is_vowel,        runner);
+    XTEST_RUN_UNIT(letter_let_tscl_letter_to_lowercase,    runner);
+    XTEST_RUN_UNIT(letter_let_tscl_letter_to_uppercase,    runner);
+    XTEST_RUN_UNIT(letter_let_tscl_letter_is_alpha,        runner);
     XTEST_RUN_UNIT(test_is_punctuation,                runner);
     XTEST_RUN_UNIT(test_is_whitespace,                 runner);
     XTEST_RUN_UNIT(test_remove_punctuation,            runner);
@@ -246,9 +246,9 @@ XTEST_GROUP_DEFINE(test_letter_group) {
     XTEST_RUN_UNIT(test_to_ascii,                      runner);
     XTEST_RUN_UNIT(test_ascii_to_letter,               runner);
     XTEST_RUN_UNIT(test_shift_string,                  runner);
-    XTEST_RUN_UNIT(letter_let_letter_is_vowel_additional,        runner);
-    XTEST_RUN_UNIT(letter_let_letter_to_lowercase_additional,    runner);
-    XTEST_RUN_UNIT(letter_let_letter_to_uppercase_additional,    runner);
+    XTEST_RUN_UNIT(letter_let_tscl_letter_is_vowel_additional,        runner);
+    XTEST_RUN_UNIT(letter_let_tscl_letter_to_lowercase_additional,    runner);
+    XTEST_RUN_UNIT(letter_let_tscl_letter_to_uppercase_additional,    runner);
     XTEST_RUN_UNIT(letter_let_letter_count_in_string_additional, runner);
-    XTEST_RUN_UNIT(letter_let_letter_is_alpha_additional,        runner);
+    XTEST_RUN_UNIT(letter_let_tscl_letter_is_alpha_additional,        runner);
 } // end of function main

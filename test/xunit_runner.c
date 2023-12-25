@@ -36,9 +36,10 @@
 //
 XTEST_GROUP_EXTERN(test_letter_group   );
 XTEST_GROUP_EXTERN(test_string_group   );
-XTEST_GROUP_EXTERN(test_wygstring_group);
-XTEST_GROUP_EXTERN(test_cipher_group   );
+XTEST_GROUP_EXTERN(test_tscl_wygstring_group);
+XTEST_GROUP_EXTERN(test_tscl_cipher_group   );
 XTEST_GROUP_EXTERN(test_number_group   );
+XTEST_GROUP_EXTERN(test_color_group   );
 XTEST_GROUP_EXTERN(test_nlp_group      );
 
 //
@@ -47,11 +48,12 @@ XTEST_GROUP_EXTERN(test_nlp_group      );
 int main(int argc, char **argv) {
     XUnitRunner runner = XTEST_RUNNER_START(argc, argv);
 
-    XTEST_GROUP_REGISTER(test_wygstring_group, runner);
-    XTEST_GROUP_REGISTER(test_cipher_group,    runner);
+    XTEST_GROUP_REGISTER(test_tscl_wygstring_group, runner);
+    XTEST_GROUP_REGISTER(test_tscl_cipher_group,    runner);
     XTEST_GROUP_REGISTER(test_string_group,    runner);
     XTEST_GROUP_REGISTER(test_letter_group,    runner);
     XTEST_GROUP_REGISTER(test_number_group,    runner);
+    XTEST_GROUP_REGISTER(test_color_group,     runner);
     XTEST_GROUP_REGISTER(test_nlp_group,       runner);
 
     return XTEST_RUNNER_END(runner);
