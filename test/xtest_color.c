@@ -29,7 +29,7 @@ XTEST_CASE(test_tscl_string_color_red_light) {
 //
 // XUNIT-TEST RUNNER
 //
-XTEST_GROUP_DEFINE(test_number_group) {
+XTEST_GROUP_DEFINE(test_color_group) {
     XTEST_RUN_UNIT(test_tscl_string_color_red_dark,  runner);
     XTEST_RUN_UNIT(test_tscl_string_color_red_light, runner);
 } // end of function main
