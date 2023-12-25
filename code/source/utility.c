@@ -84,10 +84,6 @@ int tscl_string_compare(const_cstring str1, const_cstring str2) {
     }
 } // end of func
 
-void tscl_string_erase(cstring str) {
-    free(str);
-} // end of func
-
 cstring tscl_string_substr(const_cstring str, size_t start, size_t length) {
     if (str == NULL || start >= strlen(str)) {
         return NULL;
