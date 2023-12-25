@@ -45,7 +45,7 @@ extern "C"
 {
 #endif
 
-#include <xstring/cstring.h>
+#include <cstring.h>
 
 // =================================================================
 // Available functions
