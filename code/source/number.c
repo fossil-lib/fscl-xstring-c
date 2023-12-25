@@ -70,7 +70,6 @@ NumberMapping powersOfTen[] = {
 int tscl_string_number_to_numeric(cstring number) {
     int total = 0;
     int currentNumber = 0;
-    int lastNumber = 0;
 
     for (size_t i = 0; i < sizeof(units) / sizeof(units[0]); ++i) {
         if (strcmp(number, units[i].word) == 0) {
@@ -97,6 +96,7 @@ int tscl_string_number_to_numeric(cstring number) {
         }
     }
 
+    int lastNumber = 0;
     if (currentNumber == 0) {
         for (size_t i = 0; i < sizeof(powersOfTen) / sizeof(powersOfTen[0]); ++i) {
             if (strcmp(number, powersOfTen[i].word) == 0) {
