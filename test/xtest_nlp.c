@@ -57,7 +57,7 @@ XTEST_CASE(test_tscl_string_lang_remove_stopwords) {
 //
 // XUNIT-TEST RUNNER
 //
-XTEST_GROUP_DEFINE(test_cipher_group) {
+XTEST_GROUP_DEFINE(test_nlp_group) {
     XTEST_RUN_UNIT(test_tscl_string_lang_count_words,      runner);
     XTEST_RUN_UNIT(test_tscl_string_lang_tokenize,         runner);
     XTEST_RUN_UNIT(test_tscl_string_lang_detect_language,  runner);
