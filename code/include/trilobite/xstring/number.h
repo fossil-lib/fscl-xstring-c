@@ -46,7 +46,7 @@ extern "C"
 #endif
 
 #include <stdlib.h>
-#include <cstring.h>
+#include <trilobite/xstring/cstring.h>
 
 // =================================================================
 // Available functions
