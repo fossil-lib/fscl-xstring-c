@@ -37,39 +37,27 @@
 
    (Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0)
 */
-#ifndef TSCL_CIPHER_H
-#define TSCL_CIPHER_H
+#ifndef TSCL_NLP_H
+#define TSCL_NLP_H
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-// Define the cipher and const_cipher typedefs
-typedef char *cipher;
-typedef const char *const_cipher;
+#include <stdlib.h>
+#include <trilobite/xstring/cstring.h>
 
 // =================================================================
 // Available functions
 // =================================================================
-void tscl_cipher_caesar_encrypt(cipher message, int shift);
-void tscl_cipher_caesar_decrypt(cipher message, int shift);
-void tscl_cipher_atbash_encrypt(cipher message);
-void tscl_cipher_atbash_decrypt(cipher message);
-void tscl_cipher_substitution_encrypt(cipher message, const_cipher key);
-void tscl_cipher_substitution_decrypt(cipher message, const_cipher key);
-void tscl_cipher_haxor_encrypt(cipher message);
-void tscl_cipher_haxor_decrypt(cipher message);
-void tscl_cipher_morse_encrypt(cipher message);
-void tscl_cipher_morse_decrypt(cipher message);
-void tscl_cipher_rot13_encrypt(cipher message);
-void tscl_cipher_rot13_decrypt(cipher message);
-void tscl_cipher_playfair_encrypt(cipher message, cipher key, cipher encrypted);
-void tscl_cipher_playfair_decrypt(cipher message, cipher key, cipher decrypted);
-void tscl_cipher_rail_fence_encrypt(cipher message, int rails);
-void tscl_cipher_rail_fence_decrypt(cipher message, int rails);
-void tscl_cipher_vigenere_encrypt(cipher message, const_cipher key);
-void tscl_cipher_vigenere_decrypt(cipher message, const_cipher key);
+size_t tscl_string_lang_length(cstring str);
+cstring tscl_string_lang_concat(cstring str1, cstring str2);
+size_t tscl_string_lang_count_words(cstring sentence);
+char** tscl_string_lang_tokenize(cstring sentence, size_t* tokenCount);
+cstring tscl_string_lang_detect_language(cstring sentence);
+void tscl_string_lang_to_lowercase(cstring str);
+cstring tscl_string_lang_remove_stopwords(cstring sentence);
 
 #ifdef __cplusplus
 }

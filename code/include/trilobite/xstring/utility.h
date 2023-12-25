@@ -37,39 +37,45 @@
 
    (Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0)
 */
-#ifndef TSCL_CIPHER_H
-#define TSCL_CIPHER_H
+#ifndef TSCL_UTIL_H
+#define TSCL_UTIL_H
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-// Define the cipher and const_cipher typedefs
-typedef char *cipher;
-typedef const char *const_cipher;
+#include <stddef.h>
+#include <trilobite/xstring/cstring.h>
 
 // =================================================================
 // Available functions
 // =================================================================
-void tscl_cipher_caesar_encrypt(cipher message, int shift);
-void tscl_cipher_caesar_decrypt(cipher message, int shift);
-void tscl_cipher_atbash_encrypt(cipher message);
-void tscl_cipher_atbash_decrypt(cipher message);
-void tscl_cipher_substitution_encrypt(cipher message, const_cipher key);
-void tscl_cipher_substitution_decrypt(cipher message, const_cipher key);
-void tscl_cipher_haxor_encrypt(cipher message);
-void tscl_cipher_haxor_decrypt(cipher message);
-void tscl_cipher_morse_encrypt(cipher message);
-void tscl_cipher_morse_decrypt(cipher message);
-void tscl_cipher_rot13_encrypt(cipher message);
-void tscl_cipher_rot13_decrypt(cipher message);
-void tscl_cipher_playfair_encrypt(cipher message, cipher key, cipher encrypted);
-void tscl_cipher_playfair_decrypt(cipher message, cipher key, cipher decrypted);
-void tscl_cipher_rail_fence_encrypt(cipher message, int rails);
-void tscl_cipher_rail_fence_decrypt(cipher message, int rails);
-void tscl_cipher_vigenere_encrypt(cipher message, const_cipher key);
-void tscl_cipher_vigenere_decrypt(cipher message, const_cipher key);
+size_t tscl_string_length(const_cstring str);
+cstring tscl_string_copy(const_cstring src);
+cstring tscl_string_concat(const_cstring str1, const_cstring str2);
+int tscl_string_compare(const_cstring str1, const_cstring str2);
+cstring tscl_string_substr(const_cstring str, size_t start, size_t length);
+int tscl_string_find(const_cstring str, const_cstring substr);
+int tscl_string_rfind(const_cstring str, const_cstring substr);
+cstring *tscl_string_split(const_cstring str, const_cstring delimiter);
+cstring tscl_string_to_upper(const_cstring str);
+cstring tscl_string_to_lower(const_cstring str);
+cstring tscl_string_trim(const_cstring str);
+cstring tscl_string_reverse(const_cstring str);
+cstring tscl_string_replace(cstring str, const_cstring find, const_cstring replace);
+cstring tscl_string_shuffle(const_cstring str);
+cstring tscl_string_make_silly(const_cstring str);
+cstring tscl_string_strdup(const_cstring str);
+int tscl_string_starts_with(const_cstring str, const_cstring prefix);
+int tscl_string_ends_with(const_cstring str, const_cstring suffix);
+cstring tscl_string_pad(const_cstring str, size_t length, char padding_char);
+cstring tscl_string_remove_char(const_cstring str, char char_to_remove);
+size_t tscl_string_count_substring(cstring str, const_cstring substr);
+cstring tscl_string_reverse_words(const_cstring str);
+cstring tscl_string_to_title_case(const_cstring str);
+cstring tscl_string_remove_consecutive_duplicates(const_cstring str);
+cstring tscl_string_remove_extra_spaces(const_cstring str);
 
 #ifdef __cplusplus
 }

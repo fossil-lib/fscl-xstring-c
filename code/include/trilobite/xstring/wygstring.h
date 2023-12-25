@@ -52,144 +52,26 @@ typedef struct {
     int length;
 } cwygstring;
 
-/**
- * @brief Creates a new cwygstring and initializes it with the provided text.
- *
- * @param text The initial text for the cwygstring.
- * @return A pointer to the newly created cwygstring, or NULL if memory allocation fails.
- */
-cwygstring* wygstring_create(const char* text);
-
-/**
- * @brief Sets the text of a cwygstring to the specified value.
- *
- * @param wygstring The cwygstring to update.
- * @param text The new text to set for the cwygstring.
- */
-void wygstring_set_text(cwygstring* wygstring, const char* text);
-
-/**
- * @brief Retrieves the text content of a cwygstring.
- *
- * @param wygstring The cwygstring to retrieve text from.
- * @return A pointer to the text content of the cwygstring.
- */
-const char* wygstring_get_text(const cwygstring* wygstring);
-
-/**
- * @brief Frees the memory associated with a cwygstring.
- *
- * @param wygstring The cwygstring to be deallocated.
- */
-void wygstring_erase(cwygstring* wygstring);
-
-/**
- * @brief Appends the specified text to the end of a cwygstring.
- *
- * @param wygstring The cwygstring to which text will be appended.
- * @param text_to_append The text to append.
- */
-void wygstring_append_text(cwygstring* wygstring, const char* text_to_append);
-
-/**
- * @brief Inserts the provided text at the specified position within a cwygstring.
- *
- * @param wygstring The cwygstring to which text will be inserted.
- * @param position The position at which the text will be inserted.
- * @param text_to_insert The text to insert.
- */
-void wygstring_insert_text(cwygstring* wygstring, int position, const char* text_to_insert);
-
-/**
- * @brief Makes a specified portion of a cwygstring text bold.
- *
- * @param wygstring The cwygstring to modify.
- * @param start The start position of the text to be made bold.
- * @param end The end position of the text to be made bold.
- */
-void wygstring_make_bold(cwygstring* wygstring, int start, int end);
-
-/**
- * @brief Makes a specified portion of a cwygstring text italic.
- *
- * @param wygstring The cwygstring to modify.
- * @param start The start position of the text to be made italic.
- * @param end The end position of the text to be made italic.
- */
-void wygstring_make_italic(cwygstring* wygstring, int start, int end);
-
-/**
- * @brief Makes a specified portion of a cwygstring text underlined.
- *
- * @param wygstring The cwygstring to modify.
- * @param start The start position of the text to be underlined.
- * @param end The end position of the text to be underlined.
- */
-void wygstring_make_underlined(cwygstring* wygstring, int start, int end);
-
-/**
- * @brief Compares two cwygstring objects for equality.
- *
- * @param str1 The first cwygstring to compare.
- * @param str2 The second cwygstring to compare.
- * @return 0 if the strings are equal; a positive value if str1 is greater; a negative value if str1 is smaller.
- */
-int wygstring_compare(const cwygstring* str1, const cwygstring* str2);
-
-/**
- * @brief Concatenates the content of the source cwygstring to the destination cwygstring.
- *
- * @param dest The destination cwygstring to which content will be appended.
- * @param src The source cwygstring whose content will be appended to dest.
- */
-void wygstring_concat(cwygstring* dest, const cwygstring* src);
-
-/**
- * @brief Creates a new cwygstring by copying the content of an existing cwygstring.
- *
- * @param wygstring The cwygstring to be copied.
- * @return A new cwygstring with the same content as the input, or NULL if memory allocation fails.
- */
-cwygstring* wygstring_copy(const cwygstring* wygstring);
-
-/**
- * @brief Returns the length of a cwygstring.
- *
- * @param wygstring The cwygstring for which the length is requested.
- * @return The length (number of characters) of the cwygstring.
- */
-int wygstring_length(const cwygstring* wygstring);
-
-/**
- * @brief Trims leading and trailing whitespace characters from a cwygstring.
- *
- * @param wygstring The cwygstring to be trimmed.
- */
-void wygstring_trim(cwygstring* wygstring);
-
-/**
- * @brief Converts the text of a cwygstring to lowercase.
- *
- * @param wygstring The cwygstring to convert.
- */
-void wygstring_to_lowercase(cwygstring* wygstring);
-
-/**
- * @brief Converts the text of a cwygstring to uppercase.
- *
- * @param wygstring The cwygstring to convert.
- */
-void wygstring_to_uppercase(cwygstring* wygstring);
-
-/**
- * @brief Replaces a specified portion of a cwygstring text with another text.
- *
- * @param wygstring The cwygstring to modify.
- * @param start The start position of the text to replace.
- * @param end The end position of the text to replace.
- * @param replacement The text to replace with.
- */
-void wygstring_replace_text(cwygstring* wygstring, int start, int end, const char* replacement);
+// =================================================================
+// Available functions
+// =================================================================
+cwygstring* tscl_wygstring_create(const char* text);
+void tscl_wygstring_set_text(cwygstring* wygstring, const char* text);
+const char* tscl_wygstring_get_text(const cwygstring* wygstring);
+void tscl_wygstring_erase(cwygstring* wygstring);
+void tscl_wygstring_append_text(cwygstring* wygstring, const char* text_to_append);
+void tscl_wygstring_insert_text(cwygstring* wygstring, int position, const char* text_to_insert);
+void tscl_wygstring_make_bold(cwygstring* wygstring, int start, int end);
+void tscl_wygstring_make_italic(cwygstring* wygstring, int start, int end);
+void tscl_wygstring_make_underlined(cwygstring* wygstring, int start, int end);
+int tscl_wygstring_compare(const cwygstring* str1, const cwygstring* str2);
+void tscl_wygstring_concat(cwygstring* dest, const cwygstring* src);
+cwygstring* tscl_wygstring_copy(const cwygstring* wygstring);
+int tscl_wygstring_length(const cwygstring* wygstring);
+void tscl_wygstring_trim(cwygstring* wygstring);
+void tscl_wygstring_to_lowercase(cwygstring* wygstring);
+void tscl_wygstring_to_uppercase(cwygstring* wygstring);
+void tscl_wygstring_replace_text(cwygstring* wygstring, int start, int end, const char* replacement);
 
 #ifdef __cplusplus
 }

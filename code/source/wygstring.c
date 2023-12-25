@@ -38,7 +38,7 @@
 // Adjust the size as needed
 enum {TAG_LENGTH = 3};
 
-cwygstring* wygstring_create(const char* text) {
+cwygstring* tscl_wygstring_create(const char* text) {
     if (text == NULL) {
         return NULL;
     }
@@ -60,7 +60,7 @@ cwygstring* wygstring_create(const char* text) {
     return NULL;
 } // end of func
 
-void wygstring_set_text(cwygstring* wygstring, const char* text) {
+void tscl_wygstring_set_text(cwygstring* wygstring, const char* text) {
     if (wygstring) {
         free(wygstring->text);
         wygstring->text = (char*)malloc(strlen(text) + 1);
@@ -74,18 +74,18 @@ void wygstring_set_text(cwygstring* wygstring, const char* text) {
     }
 } // end of func
 
-const char* wygstring_get_text(const cwygstring* wygstring) {
+const char* tscl_wygstring_get_text(const cwygstring* wygstring) {
     return (wygstring) ? wygstring->text : NULL;
 } // end of func
 
-void wygstring_erase(cwygstring* wygstring) {
+void tscl_wygstring_erase(cwygstring* wygstring) {
     if (wygstring) {
         free(wygstring->text);
         free(wygstring);
     }
 } // end of func
 
-void wygstring_append_text(cwygstring* wygstring, const char* text_to_append) {
+void tscl_wygstring_append_text(cwygstring* wygstring, const char* text_to_append) {
     if (wygstring) {
         wygstring->text = (char*)realloc(wygstring->text, wygstring->length + strlen(text_to_append) + 1);
         
@@ -98,7 +98,7 @@ void wygstring_append_text(cwygstring* wygstring, const char* text_to_append) {
     }
 } // end of func
 
-void wygstring_insert_text(cwygstring* wygstring, int position, const char* text_to_insert) {
+void tscl_wygstring_insert_text(cwygstring* wygstring, int position, const char* text_to_insert) {
     if (wygstring) {
         if (position >= 0 && position <= wygstring->length) {
             wygstring->text = (char*)realloc(wygstring->text, wygstring->length + strlen(text_to_insert) + 1);
@@ -114,7 +114,7 @@ void wygstring_insert_text(cwygstring* wygstring, int position, const char* text
     }
 } // end of func
 
-void wygstring_make_formatting(cwygstring* wygstring, int start, int end, const char* tag) {
+void tscl_wygstring_make_formatting(cwygstring* wygstring, int start, int end, const char* tag) {
     if (wygstring && start >= 0 && end >= start && end <= wygstring->length) {
         char* newText = (char*)realloc(wygstring->text, wygstring->length + 2 * TAG_LENGTH + 1);
         
@@ -140,23 +140,23 @@ void wygstring_make_formatting(cwygstring* wygstring, int start, int end, const 
     }
 } // end of func
 
-void wygstring_make_bold(cwygstring* wygstring, int start, int end) {
-    wygstring_make_formatting(wygstring, start, end, "<b>");
+void tscl_wygstring_make_bold(cwygstring* wygstring, int start, int end) {
+    tscl_wygstring_make_formatting(wygstring, start, end, "<b>");
 } // end of func
 
-void wygstring_make_italic(cwygstring* wygstring, int start, int end) {
-    wygstring_make_formatting(wygstring, start, end, "<i>");
+void tscl_wygstring_make_italic(cwygstring* wygstring, int start, int end) {
+    tscl_wygstring_make_formatting(wygstring, start, end, "<i>");
 } // end of func
 
-void wygstring_make_underlined(cwygstring* wygstring, int start, int end) {
-    wygstring_make_formatting(wygstring, start, end, "<u>");
+void tscl_wygstring_make_underlined(cwygstring* wygstring, int start, int end) {
+    tscl_wygstring_make_formatting(wygstring, start, end, "<u>");
 } // end of func
 
-int wygstring_compare(const cwygstring* str1, const cwygstring* str2) {
+int tscl_wygstring_compare(const cwygstring* str1, const cwygstring* str2) {
     return (str1 && str2) ? strcmp(str1->text, str2->text) : -1;
 } // end of func
 
-void wygstring_concat(cwygstring* dest, const cwygstring* src) {
+void tscl_wygstring_concat(cwygstring* dest, const cwygstring* src) {
     if (dest && src) {
         dest->text = (char*)realloc(dest->text, dest->length + src->length + 1);
         
@@ -169,20 +169,20 @@ void wygstring_concat(cwygstring* dest, const cwygstring* src) {
     }
 } // end of func
 
-cwygstring* wygstring_copy(const cwygstring* wygstring) {
+cwygstring* tscl_wygstring_copy(const cwygstring* wygstring) {
     if (wygstring) {
-        return wygstring_create(wygstring->text);
+        return tscl_wygstring_create(wygstring->text);
     }
 
     return NULL;
 } // end of func
 
-int wygstring_length(const cwygstring* wygstring) {
+int tscl_wygstring_length(const cwygstring* wygstring) {
     return (wygstring) ? wygstring->length : 0;
 } // end of func
 
 // Function to trim leading and trailing whitespace characters from a cwygstring.
-void wygstring_trim(cwygstring* wygstring) {
+void tscl_wygstring_trim(cwygstring* wygstring) {
     if (wygstring == NULL || wygstring->text == NULL) {
         return; // Invalid input
     }
@@ -208,7 +208,7 @@ void wygstring_trim(cwygstring* wygstring) {
 } // end of func
 
 // Function to convert the text of a cwygstring to lowercase.
-void wygstring_to_lowercase(cwygstring* wygstring) {
+void tscl_wygstring_to_lowercase(cwygstring* wygstring) {
     if (wygstring == NULL || wygstring->text == NULL) {
         return; // Invalid input
     }
@@ -219,7 +219,7 @@ void wygstring_to_lowercase(cwygstring* wygstring) {
 } // end of func
 
 // Function to convert the text of a cwygstring to uppercase.
-void wygstring_to_uppercase(cwygstring* wygstring) {
+void tscl_wygstring_to_uppercase(cwygstring* wygstring) {
     if (wygstring == NULL || wygstring->text == NULL) {
         return; // Invalid input
     }
@@ -230,7 +230,7 @@ void wygstring_to_uppercase(cwygstring* wygstring) {
 } // end of func
 
 // Function to replace a specified portion of a cwygstring text with another text.
-void wygstring_replace_text(cwygstring* wygstring, int start, int end, const char* replacement) {
+void tscl_wygstring_replace_text(cwygstring* wygstring, int start, int end, const char* replacement) {
     if (wygstring == NULL || wygstring->text == NULL || replacement == NULL) {
         return; // Invalid input
     }

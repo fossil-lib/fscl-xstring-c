@@ -51,269 +51,39 @@ typedef int ascii;
 typedef char letter;
 typedef const char const_letter;
 
-/**
- * @brief Check if a character is a vowel.
- *
- * @param c The character to check.
- *
- * @return 1 if the character is a vowel, 0 otherwise.
- */
-int letter_is_vowel(letter c);
-
-/**
- * @brief Check if a character is a consonant.
- *
- * @param c The character to check.
- *
- * @return 1 if the character is a consonant, 0 otherwise.
- */
-int letter_is_consonant(letter c);
-
-/**
- * @brief Convert a character to lowercase.
- *
- * @param c The character to convert.
- *
- * @return The lowercase version of the character.
- */
-letter letter_to_lowercase(letter c);
-
-/**
- * @brief Convert a character to uppercase.
- *
- * @param c The character to convert.
- *
- * @return The uppercase version of the character.
- */
-letter letter_to_uppercase(letter c);
-
-/**
- * @brief Count the occurrences of a character in a string.
- *
- * @param str The input string.
- * @param target The character to count.
- *
- * @return The number of occurrences of the character in the string.
- */
-size_t letter_count_in_string(const_letter *str, letter target);
-
-/**
- * @brief Check if a character is a digit.
- *
- * @param c The character to check.
- *
- * @return 1 if the character is a digit, 0 otherwise.
- */
-int letter_is_digit(letter c);
-
-/**
- * @brief Check if a character is alphanumeric.
- *
- * @param c The character to check.
- *
- * @return 1 if the character is alphanumeric, 0 otherwise.
- */
-int letter_is_alnum(letter c);
-
-/**
- * @brief Check if a character is an alphabetic character (a-z or A-Z).
- *
- * @param c The character to check.
- *
- * @return 1 if the character is alphabetic, 0 otherwise.
- */
-int letter_is_alpha(letter c);
-
-/**
- * @brief Toggle the case of a character.
- *
- * @param c The character to toggle.
- *
- * @return The character with its case toggled.
- */
-letter letter_toggle_case(letter c);
-
-/**
- * @brief Perform ROT13 encoding/decoding on a character.
- *
- * @param c The character to encode/decode.
- *
- * @return The ROT13 encoded/decoded character.
- */
-letter letter_rot13(letter c);
-
-/**
- * @brief Remove all occurrences of a character from a string.
- *
- * @param str The input string (modified in-place).
- * @param target The character to remove.
- */
-void letter_remove_char(letter *str, letter target);
-
-/**
- * @brief Replace all occurrences of a character with another character in a string.
- *
- * @param str The input string (modified in-place).
- * @param target The character to replace.
- * @param replacement The character to replace with.
- */
-void letter_replace_char(letter *str, letter target, letter replacement);
-
-/**
- * @brief Trim leading and trailing whitespace characters from a string.
- *
- * @param str The input string (modified in-place).
- */
-void letter_trim_whitespace(letter *str);
-
-/**
- * @brief Reverse a string in-place.
- *
- * @param str The input string (modified in-place).
- */
-void letter_reverse_string(letter *str);
-
-/**
- * @brief Find the first occurrence of a character in a string.
- *
- * @param str The input string.
- * @param target The character to find.
- *
- * @return A pointer to the first occurrence of the character in the string, or NULL if not found.
- */
-letter *letter_find_first(letter *str, letter target);
-
-/**
- * @brief Find the last occurrence of a character in a string.
- *
- * @param str The input string.
- * @param target The character to find.
- *
- * @return A pointer to the last occurrence of the character in the string, or NULL if not found.
- */
-letter *letter_find_last(letter *str, letter target);
-
-/**
- * @brief Split a string into an array of substrings based on a delimiter character.
- *
- * @param str The input string to split.
- * @param delimiter The delimiter character.
- * @param num_tokens Pointer to a variable to store the number of tokens found.
- *
- * @return An array of strings (tokens) created by splitting the input string. 
- *         Remember to free the allocated memory when done.
- */
-letter **letter_split_string(const_letter *str, letter delimiter, size_t *num_tokens);
-
-/**
- * @brief Join an array of strings into a single string using a delimiter character.
- *
- * @param tokens An array of strings to join.
- * @param num_tokens The number of tokens in the array.
- * @param delimiter The delimiter character to insert between tokens.
- *
- * @return A newly allocated string that is the result of joining the input strings.
- *         Remember to free the allocated memory when done.
- */
-letter *letter_join_strings(const letter **tokens, size_t num_tokens, letter delimiter);
-
-/**
- * @brief Calculate the frequency of each character in a string.
- *
- * @param str The input string.
- * @param frequency An array to store the frequency of each character (indexed by ASCII value).
- *                 The array should be at least 128 elements long.
- */
-void letter_char_frequency(const_letter *str, int *frequency);
-
-/**
- * @brief Check if a character is a punctuation mark.
- *
- * @param c The character to check.
- *
- * @return 1 if the character is a punctuation mark, 0 otherwise.
- */
-int letter_is_punctuation(letter c);
-
-/**
- * @brief Check if a character is a whitespace character.
- *
- * @param c The character to check.
- *
- * @return 1 if the character is a whitespace character, 0 otherwise.
- */
-int letter_is_whitespace(letter c);
-
-/**
- * @brief Remove all occurrences of punctuation marks from a string.
- *
- * @param str The input string (modified in-place).
- */
-void letter_remove_punctuation(letter *str);
-
-/**
- * @brief Remove all occurrences of whitespace characters from a string.
- *
- * @param str The input string (modified in-place).
- */
-void letter_remove_whitespace(letter *str);
-
-/**
- * @brief Replace all occurrences of whitespace characters with a specified character in a string.
- *
- * @param str The input string (modified in-place).
- * @param replacement The character to replace whitespace with.
- */
-void letter_replace_whitespace(letter *str, letter replacement);
-
-/**
- * @brief Remove consecutive duplicate characters from a string.
- *
- * @param str The input string (modified in-place).
- */
-void letter_remove_consecutive_duplicates(letter *str);
-
-/**
- * @brief Capitalize the first letter of each word in a string.
- *
- * @param str The input string (modified in-place).
- */
-void letter_capitalize_words(letter *str);
-
-/**
- * @brief Check if a character is a printable ASCII character.
- *
- * @param c The character to check.
- *
- * @return 1 if the character is a printable ASCII character, 0 otherwise.
- */
-int letter_is_printable(letter c);
-
-/**
- * @brief Convert a character to its ASCII value.
- *
- * @param c The character to convert.
- *
- * @return The ASCII value of the character.
- */
-int letter_to_ascii(letter c);
-
-/**
- * @brief Convert an ASCII value to a character.
- *
- * @param ascii_value The ASCII value to convert.
- *
- * @return The character corresponding to the ASCII value.
- */
-letter letter_ascii_to_letter(ascii ascii_value);
-
-/**
- * @brief Shift the characters in a string by a specified amount.
- *
- * @param str The input string (modified in-place).
- * @param shift_amount The amount to shift the characters.
- */
-void letter_shift_string(letter *str, int shift_amount);
+// =================================================================
+// Available functions
+// =================================================================
+int tscl_letter_is_vowel(letter c);
+int tscl_letter_is_consonant(letter c);
+letter tscl_letter_to_lowercase(letter c);
+letter tscl_letter_to_uppercase(letter c);
+size_t tscl_letter_count_in_string(const_letter *str, letter target);
+int tscl_letter_is_digit(letter c);
+int tscl_letter_is_alnum(letter c);
+int tscl_letter_is_alpha(letter c);
+letter tscl_letter_toggle_case(letter c);
+letter tscl_letter_rot13(letter c);
+void tscl_letter_remove_char(letter *str, letter target);
+void tscl_letter_replace_char(letter *str, letter target, letter replacement);
+void tscl_letter_trim_whitespace(letter *str);
+void tscl_letter_reverse_string(letter *str);
+letter *tscl_letter_find_first(letter *str, letter target);
+letter *tscl_letter_find_last(letter *str, letter target);
+letter **tscl_letter_split_string(const_letter *str, letter delimiter, size_t *num_tokens);
+letter *tscl_letter_join_strings(const letter **tokens, size_t num_tokens, letter delimiter);
+void tscl_letter_char_frequency(const_letter *str, int *frequency);
+int tscl_letter_is_punctuation(letter c);
+int tscl_letter_is_whitespace(letter c);
+void tscl_letter_remove_punctuation(letter *str);
+void tscl_letter_remove_whitespace(letter *str);
+void tscl_letter_replace_whitespace(letter *str, letter replacement);
+void tscl_letter_remove_consecutive_duplicates(letter *str);
+void tscl_letter_capitalize_words(letter *str);
+int tscl_letter_is_printable(letter c);
+int tscl_letter_to_ascii(letter c);
+letter tscl_letter_ascii_to_letter(ascii ascii_value);
+void tscl_letter_shift_string(letter *str, int shift_amount);
 
 #ifdef __cplusplus
 }
