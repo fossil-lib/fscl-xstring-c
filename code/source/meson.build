@@ -1,4 +1,4 @@
-code = files('cstring.c', 'letter.c', 'wygstring.c', 'cipher.c')
+code = files('cstring.c', 'letter.c', 'wygstring.c', 'cipher.c', 'nlp.c', 'number.c', 'color.c')
 
 lib = static_library('tscl-xstring-c',
     code,
