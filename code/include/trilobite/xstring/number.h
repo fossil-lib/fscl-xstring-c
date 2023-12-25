@@ -51,7 +51,7 @@ extern "C"
 // =================================================================
 // Available functions
 // =================================================================
-int tscl_string_number_to_numeric(cstring number;
+int tscl_string_number_to_numeric(cstring number);
 int tscl_string_expression_to_numeric(cstring expression);
 cstring tscl_string_number_from_numeric(int number);
 

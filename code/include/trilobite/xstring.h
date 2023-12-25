@@ -48,6 +48,8 @@ extern "C"
 #include "xstring/cstring.h"
 #include "xstring/letter.h"
 #include "xstring/cipher.h"
+#include "xstring/nlp.h"
+#include "xstring/color.h"
 #include "xstring/wygstring.h"
 
 #ifdef __cplusplus
