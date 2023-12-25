@@ -87,6 +87,27 @@ char** tscl_string_lang_tokenize(cstring sentence, size_t* tokenCount) {
     return tokens;
 }
 
+cstring tscl_string_lang_detect_language(cstring sentence) {
+    size_t canadianWords = tscl_string_lang_count_words("eh toque poutine");
+    size_t malaysianWords = tscl_string_lang_count_words("nasi lemak durian batik");
+    size_t southAmericanWords = tscl_string_lang_count_words("tango andes llamas");
+    size_t greekWords = tscl_string_lang_count_words("parthenon ouzo gyro");
+
+    size_t wordCount = tscl_string_lang_count_words(sentence);
+
+    if (wordCount >= canadianWords) {
+        return "Canadian English";
+    } else if (wordCount >= malaysianWords) {
+        return "Malaysian Malay";
+    } else if (wordCount >= southAmericanWords) {
+        return "South American Spanish";
+    } else if (wordCount >= greekWords) {
+        return "Greek";
+    } else {
+        return "Unknown";
+    }
+}
+
 void tscl_string_lang_to_lowercase(cstring str) {
     while (*str) {
         *str = tolower((unsigned char)*str);

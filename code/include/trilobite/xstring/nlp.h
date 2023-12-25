@@ -55,6 +55,7 @@ size_t tscl_string_lang_length(cstring str);
 cstring tscl_string_lang_concat(cstring str1, cstring str2);
 size_t tscl_string_lang_count_words(cstring sentence);
 char** tscl_string_lang_tokenize(cstring sentence, size_t* tokenCount);
+cstring tscl_string_lang_detect_language(cstring sentence);
 void tscl_string_lang_to_lowercase(cstring str);
 cstring tscl_string_lang_remove_stopwords(cstring sentence);
 
