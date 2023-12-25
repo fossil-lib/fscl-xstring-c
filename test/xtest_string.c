@@ -253,7 +253,7 @@ XTEST_CASE(test_tscl_string_reverse_words) {
 //
 // XUNIT-TEST RUNNER
 //
-XTEST_GROUP_DEFINE(test_tscl_string_group) {
+XTEST_GROUP_DEFINE(test_string_group) {
     XTEST_RUN_UNIT(tscl_string_let_tscl_string_compare, runner);
     XTEST_RUN_UNIT(tscl_string_let_tscl_string_concat,  runner);
     XTEST_RUN_UNIT(tscl_string_let_tscl_string_copy,    runner);
