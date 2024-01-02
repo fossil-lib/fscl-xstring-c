@@ -1,16 +1,8 @@
-# TSCL XString Library - **C**
+# Fossil XString - **C**
 
-The TSCL String is a robust and efficient library designed to streamline letter and string manipulation within the C programming language. Tailored to meet the diverse needs of developers working with characters and strings, this library offers a comprehensive set of functions and utilities that simplify common operations, making code development more intuitive and productive.
+Fossil Standard Component Libraries (FSCL) by Fossil Logic represent the pinnacle of software development, embodying our commitment to quality, security, and practicality. These meticulously curated libraries serve as the cornerstone for crafting cutting-edge applications, offering a foundation built on excellence in code. With FSCL, Fossil Logic empowers developers to seamlessly integrate standardized components that elevate the overall performance and reliability of digital solutions, setting a new standard for software excellence.
 
-At its core, the TSCL String provides a collection of meticulously crafted functions for manipulating individual characters, facilitating tasks such as character comparison, conversion, and classification. Developers can seamlessly integrate these functions into their C programs to enhance precision and control over character-based operations.
-
-Beyond individual characters, the TSCL String excels in managing strings, offering an array of functions tailored to tasks such as concatenation, substring extraction, and length determination. Whether working with fixed-size arrays or dynamic memory allocation, this library provides a versatile set of tools to handle strings of varying complexities.
-
-One of the key strengths of the TSCL String lies in its emphasis on efficiency and performance. By optimizing algorithms and minimizing resource consumption, developers can trust the library to deliver swift and reliable results, even when dealing with large datasets or resource-constrained environments.
-
-In addition to its functional prowess, the TSCL String boasts a user-friendly interface, allowing programmers to seamlessly integrate its capabilities into their projects. The documentation accompanying the library serves as a comprehensive guide, offering clear explanations and examples to expedite the learning curve for developers of all experience levels.
-
-Whether you are a seasoned C programmer or a novice exploring the language, the TSCL String stands as a valuable companion, simplifying the intricacies of character and string manipulation and contributing to the overall efficiency and elegance of your C codebase.
+Master the art of string manipulation with Fossil XString. This library provides a comprehensive set of tools for working with strings, offering efficient algorithms for searching, parsing, and modifying text. Whether you're dealing with simple text processing or complex string operations, Fossil XString empowers you to handle strings with precision and ease.
 
 ## Who is This For?
 
@@ -35,14 +27,14 @@ Create a directory named subprojects in the root directory, next create a file n
 
    ```bash
    # ================ #
-   #  TSCL Wrap File. #
+   #  FSCL Wrap File. #
    # ================ #
    [wrap-git]
-   url = https://github.com/trilobite-stdlib/tscl-xstring-c.git
+   url = https://github.com/fossil-lib/fscl-xstring-c.git
    revision = main
    
    [provide]
-   tscl-xstring-c = tscl_xstring_c_dep
+   fscl-xstring-c = fscl_xstring_c_dep
    ```
 
 2. **Integrate Wrap File in Meson Build**:
@@ -52,7 +44,7 @@ Create a directory named subprojects in the root directory, next create a file n
        default_options : ['warning_level=3'])
 
    exe = executable('my_project', 'my_project.c',
-       dependencies : dependency('tscl-xstring-c'), # add this line
+       dependencies : dependency('fscl-xstring-c'), # add this line
        install : true)
 
    test('basic', exe)
@@ -70,24 +62,23 @@ Here is the link to the [Refrence Docs](https://trilobite.home.blog/reference-do
 
 ## Including the Demo and Running Tests
 
-To include the demo and run tests, you can use the following options when configuring the build:
+To run tests, you can use the following options when configuring the build:
 
-- **Including the Demo**: Add `-Dwith_demo=enabled` when configuring the build.
 - **Running Tests**: Add `-Dwith_test=enabled` when configuring the build.
 
 Example:
 
 ```bash
-meson setup builddir -Dwith_demo=enabled -Dwith_test=enabled
+meson setup builddir -Dwith_test=enabled
 ```
 
 ## Contributing
 
-If you're interested in contributing to this project, please consider opening pull requests or creating issues on the [GitHub repository](https://github.com/dreamer-coding-555/meson-lib-c). Be sure to read the documentation on the [project website](https://trilobite.home.blog).
+If you're interested in contributing to this project, please consider opening pull requests or creating issues on the [GitHub repository](https://github.com/fossil-lib/fscl-xstring-c). Be sure to read the documentation on the [project website](https://trilobite.home.blog).
 
 ## Feedback and Support
 
-If you encounter any issues, have questions, or would like to provide feedback, don't hesitate to open an issue on the [GitHub repository](https://github.com/dreamer-coding-555/meson-lib-c/issues).
+If you encounter any issues, have questions, or would like to provide feedback, don't hesitate to open an issue on the [GitHub repository](https://github.com/fossil-lib/fscl-xstring-c/issues).
 
 ## License
 
