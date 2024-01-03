@@ -1,41 +1,22 @@
-/*  ----------------------------------------------------------------------------
-    File: string.c
-
-    Description:
-    This source file contains the code entry point for the Trilobite Stdlib project.
-    It demonstrates the usage of various utilities and functions provided by the
-    Trilobite Stdlib to enhance software development.
-
-    Author: Michael Gene Brockus (Dreamer)
-    Email: michaelbrockus@gmail.com
-    Website: [Trilobite Coder Blog](https://trilobite.home.blog)
-
-    Project: Trilobite Stdlib
-
-    License: Apache License 2.0
-    SPDX Identifier: Apache-2.0
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
-
-    Unless required by applicable law or agreed to in writing, software distributed under the License
-    is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-    or implied. See the License for the specific language governing permissions and limitations
-    under the License.
-
-    Please review the full text of the Apache License 2.0 for the complete terms and conditions.
-
-    (Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0)
-    ----------------------------------------------------------------------------
+/*
+==============================================================================
+Author: Michael Gene Brockus (Dreamer)
+Email: michaelbrockus@gmail.com
+Organization: Fossil Logic
+Description: 
+    This file is part of the Fossil Logic project, where innovation meets
+    excellence in software development. Michael Gene Brockus, also known as
+    "Dreamer," is a dedicated contributor to this project. For any inquiries,
+    feel free to contact Michael at michaelbrockus@gmail.com.
+==============================================================================
 */
-#include "trilobite/xstring/utility.h"
+#include "fossil/xstring/utility.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 // Create and allocate memory for a cstring
-cstring tscl_string_create(const char* initial_value) {
+cstring fscl_string_create(const char* initial_value) {
     cstring new_string = (cstring)malloc(strlen(initial_value) + 1);
     if (new_string == NULL) {
         fprintf(stderr, "Memory allocation failed.\n");
@@ -46,12 +27,12 @@ cstring tscl_string_create(const char* initial_value) {
 }
 
 // Erase memory for a cstring
-void tscl_string_erase(cstring str) {
+void fscl_string_erase(cstring str) {
     free(str);
 }
 
 // Create and allocate memory for a cstrings array
-cstrings tscl_strings_create(int size) {
+cstrings fscl_strings_create(int size) {
     cstrings new_strings = (cstrings)malloc(size * sizeof(cstring));
     if (new_strings == NULL) {
         fprintf(stderr, "Memory allocation failed.\n");
@@ -64,15 +45,15 @@ cstrings tscl_strings_create(int size) {
 }
 
 // Erase memory for a cstrings array
-void tscl_strings_erase(cstrings strings, int size) {
+void fscl_strings_erase(cstrings strings, int size) {
     for (int i = 0; i < size; ++i) {
-        tscl_string_erase(strings[i]); // Erase each cstring in the array
+        fscl_string_erase(strings[i]); // Erase each cstring in the array
     }
     free(strings);
 }
 
 // Create and allocate memory for a const_cstring
-const_cstring tscl_const_string_create(const char* initial_value) {
+const_cstring fscl_const_string_create(const char* initial_value) {
     const_cstring new_string = (const_cstring)malloc(strlen(initial_value) + 1);
     if (new_string == NULL) {
         fprintf(stderr, "Memory allocation failed.\n");
@@ -83,12 +64,12 @@ const_cstring tscl_const_string_create(const char* initial_value) {
 }
 
 // Erase memory for a const_cstring
-void tscl_const_string_erase(const_cstring str) {
+void fscl_const_string_erase(const_cstring str) {
     free((void*)str);
 }
 
 // Create and allocate memory for a const_cstrings array
-const_cstrings tscl_const_strings_create(int size) {
+const_cstrings fscl_const_strings_create(int size) {
     const_cstrings new_strings = (const_cstrings)malloc(size * sizeof(const_cstring));
     if (new_strings == NULL) {
         fprintf(stderr, "Memory allocation failed.\n");
@@ -101,9 +82,9 @@ const_cstrings tscl_const_strings_create(int size) {
 }
 
 // Erase memory for a const_cstrings array
-void tscl_const_strings_erase(const_cstrings strings, int size) {
+void fscl_const_strings_erase(const_cstrings strings, int size) {
     for (int i = 0; i < size; ++i) {
-        tscl_const_string_erase(strings[i]); // Erase each const_cstring in the array
+        fscl_const_string_erase(strings[i]); // Erase each const_cstring in the array
     }
     free(strings);
 }
