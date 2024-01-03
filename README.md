@@ -23,7 +23,7 @@ Before getting started, make sure you have the following installed:
 
 1. **Create a Wrap File**:
 
-Create a directory named subprojects in the root directory, next create a file named `tscl-xstring-c.wrap` in the `subprojects` directory of your project with the following content:
+Create a directory named subprojects in the root directory, next create a file named `fscl-xstring-c.wrap` in the `subprojects` directory of your project with the following content:
 
    ```bash
    # ================ #
