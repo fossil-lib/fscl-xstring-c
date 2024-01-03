@@ -1,35 +1,16 @@
-/*  ----------------------------------------------------------------------------
-    File: cipher.c
-
-    Description:
-    This source file contains the code entry point for the Trilobite Stdlib project.
-    It demonstrates the usage of various utilities and functions provided by the
-    Trilobite Stdlib to enhance software development.
-
-    Author: Michael Gene Brockus (Dreamer)
-    Email: michaelbrockus@gmail.com
-    Website: [Trilobite Coder Blog](https://trilobite.home.blog)
-
-    Project: Trilobite Stdlib
-
-    License: Apache License 2.0
-    SPDX Identifier: Apache-2.0
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
-
-    Unless required by applicable law or agreed to in writing, software distributed under the License
-    is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-    or implied. See the License for the specific language governing permissions and limitations
-    under the License.
-
-    Please review the full text of the Apache License 2.0 for the complete terms and conditions.
-
-    (Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0)
-    ----------------------------------------------------------------------------
+/*
+==============================================================================
+Author: Michael Gene Brockus (Dreamer)
+Email: michaelbrockus@gmail.com
+Organization: Fossil Logic
+Description: 
+    This file is part of the Fossil Logic project, where innovation meets
+    excellence in software development. Michael Gene Brockus, also known as
+    "Dreamer," is a dedicated contributor to this project. For any inquiries,
+    feel free to contact Michael at michaelbrockus@gmail.com.
+==============================================================================
 */
-#include "trilobite/xstring/cipher.h"
+#include "fossil/xstring/cipher.h"
 #include <ctype.h>
 #include <string.h>
 
@@ -38,7 +19,7 @@ const char *morse_code[] = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "..
                             "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",
                             "..-", "...-", ".--", "-..-", "-.--", "--.."};
 
-void tscl_cipher_caesar_encrypt(cipher message, int shift) {
+void fscl_cipher_caesar_encrypt(cipher message, int shift) {
     for (int i = 0; message[i] != '\0'; ++i) {
         if (isalpha(message[i])) {
             char base = isupper(message[i]) ? 'A' : 'a';
@@ -47,11 +28,11 @@ void tscl_cipher_caesar_encrypt(cipher message, int shift) {
     }
 } // end of func
 
-void tscl_cipher_caesar_decrypt(cipher message, int shift) {
-    tscl_cipher_caesar_encrypt(message, -shift);
+void fscl_cipher_caesar_decrypt(cipher message, int shift) {
+    fscl_cipher_caesar_encrypt(message, -shift);
 } // end of func
 
-void tscl_cipher_atbash_encrypt(cipher message) {
+void fscl_cipher_atbash_encrypt(cipher message) {
     for (int i = 0; message[i] != '\0'; ++i) {
         if (isalpha(message[i])) {
             char base = isupper(message[i]) ? 'A' : 'a';
@@ -60,11 +41,11 @@ void tscl_cipher_atbash_encrypt(cipher message) {
     }
 } // end of func
 
-void tscl_cipher_atbash_decrypt(cipher message) {
-    tscl_cipher_atbash_encrypt(message);
+void fscl_cipher_atbash_decrypt(cipher message) {
+    fscl_cipher_atbash_encrypt(message);
 } // end of func
 
-void tscl_cipher_substitution_encrypt(cipher message, const_cipher key) {
+void fscl_cipher_substitution_encrypt(cipher message, const_cipher key) {
     for (int i = 0; message[i] != '\0'; ++i) {
         if (isalpha(message[i])) {
             char base = isupper(message[i]) ? 'A' : 'a';
@@ -73,7 +54,7 @@ void tscl_cipher_substitution_encrypt(cipher message, const_cipher key) {
     }
 } // end of func
 
-void tscl_cipher_substitution_decrypt(cipher message, const_cipher key) {
+void fscl_cipher_substitution_decrypt(cipher message, const_cipher key) {
     char decrypt_key[26];
 
     // Create the decryption key by reversing the original key
@@ -81,10 +62,10 @@ void tscl_cipher_substitution_decrypt(cipher message, const_cipher key) {
         decrypt_key[key[i] - 'A'] = 'A' + i;
     }
 
-    tscl_cipher_substitution_encrypt(message, decrypt_key);
+    fscl_cipher_substitution_encrypt(message, decrypt_key);
 } // end of func
 
-void tscl_cipher_haxor_encrypt(cipher message) {
+void fscl_cipher_haxor_encrypt(cipher message) {
     for (int i = 0; message[i] != '\0'; ++i) {
         switch (message[i]) {
             case 'a':
@@ -115,12 +96,12 @@ void tscl_cipher_haxor_encrypt(cipher message) {
     }
 } // end of func
 
-void tscl_cipher_haxor_decrypt(cipher message) {
+void fscl_cipher_haxor_decrypt(cipher message) {
     // The Haxor cipher is symmetric, decryption is the same as encryption
-    tscl_cipher_haxor_encrypt(message);
+    fscl_cipher_haxor_encrypt(message);
 } // end of func
 
-void tscl_cipher_morse_encrypt(cipher message) {
+void fscl_cipher_morse_encrypt(cipher message) {
     char result[1000];  // Adjust the size accordingly
 
     for (int i = 0; message[i] != '\0'; ++i) {
@@ -136,7 +117,7 @@ void tscl_cipher_morse_encrypt(cipher message) {
     strcpy(message, result);
 } // end of func
 
-void tscl_cipher_morse_decrypt(cipher message) {
+void fscl_cipher_morse_decrypt(cipher message) {
     char *token;
     char result[1000];  // Adjust the size accordingly
 
@@ -159,7 +140,7 @@ void tscl_cipher_morse_decrypt(cipher message) {
     strcpy(message, result);
 } // end of func
 
-void tscl_cipher_vigenere_encrypt(cipher message, const_cipher key) {
+void fscl_cipher_vigenere_encrypt(cipher message, const_cipher key) {
     int messageLen = strlen(message);
     int keyLen = strlen(key);
 
@@ -174,7 +155,7 @@ void tscl_cipher_vigenere_encrypt(cipher message, const_cipher key) {
     }
 }
 
-void tscl_cipher_vigenere_decrypt(cipher message, const_cipher key) {
+void fscl_cipher_vigenere_decrypt(cipher message, const_cipher key) {
     int messageLen = strlen(message);
     int keyLen = strlen(key);
 
@@ -189,7 +170,7 @@ void tscl_cipher_vigenere_decrypt(cipher message, const_cipher key) {
     }
 }
 
-void tscl_cipher_rail_fence_encrypt(cipher message, int rails) {
+void fscl_cipher_rail_fence_encrypt(cipher message, int rails) {
     int messageLen = strlen(message);
     char encrypted[1000]; // Adjust the size accordingly
 
@@ -204,7 +185,7 @@ void tscl_cipher_rail_fence_encrypt(cipher message, int rails) {
     strcpy(message, encrypted);
 }
 
-void tscl_cipher_rail_fence_decrypt(cipher message, int rails) {
+void fscl_cipher_rail_fence_decrypt(cipher message, int rails) {
     int messageLen = strlen(message);
     char decrypted[1000]; // Adjust the size accordingly
 
@@ -219,7 +200,7 @@ void tscl_cipher_rail_fence_decrypt(cipher message, int rails) {
     strcpy(message, decrypted);
 }
 
-void tscl_cipher_rot13_encrypt(cipher message) {
+void fscl_cipher_rot13_encrypt(cipher message) {
     for (int i = 0; message[i] != '\0'; ++i) {
         if (isalpha(message[i])) {
             char base = isupper(message[i]) ? 'A' : 'a';
@@ -228,9 +209,9 @@ void tscl_cipher_rot13_encrypt(cipher message) {
     }
 }
 
-void tscl_cipher_rot13_decrypt(cipher message) {
+void fscl_cipher_rot13_decrypt(cipher message) {
     // The Rot13 cipher is symmetric, decryption is the same as encryption
-    tscl_cipher_rot13_encrypt(message);
+    fscl_cipher_rot13_encrypt(message);
 }
 
 enum {SIZE = 5};
@@ -272,7 +253,7 @@ void get_playfair_pos(char keyTable[SIZE][SIZE], char ch, int* row, int* col) {
     }
 }
 
-void tscl_cipher_playfair_encrypt(cipher message, cipher key, cipher encrypted) {
+void fscl_cipher_playfair_encrypt(cipher message, cipher key, cipher encrypted) {
     char keyTable[SIZE][SIZE];
     prepare_playfair_key(key, keyTable);
 
@@ -299,7 +280,7 @@ void tscl_cipher_playfair_encrypt(cipher message, cipher key, cipher encrypted) 
     encrypted[index] = '\0';
 }
 
-void tscl_cipher_playfair_decrypt(cipher message, cipher key, cipher decrypted) {
+void fscl_cipher_playfair_decrypt(cipher message, cipher key, cipher decrypted) {
     char keyTable[SIZE][SIZE];
     prepare_playfair_key(key, keyTable);
 

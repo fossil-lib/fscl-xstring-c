@@ -1,35 +1,16 @@
-/*  ----------------------------------------------------------------------------
-    File: number.c
-
-    Description:
-    This source file contains the code entry point for the Trilobite Stdlib project.
-    It demonstrates the usage of various utilities and functions provided by the
-    Trilobite Stdlib to enhance software development.
-
-    Author: Michael Gene Brockus (Dreamer)
-    Email: michaelbrockus@gmail.com
-    Website: [Trilobite Coder Blog](https://trilobite.home.blog)
-
-    Project: Trilobite Stdlib
-
-    License: Apache License 2.0
-    SPDX Identifier: Apache-2.0
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
-
-    Unless required by applicable law or agreed to in writing, software distributed under the License
-    is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-    or implied. See the License for the specific language governing permissions and limitations
-    under the License.
-
-    Please review the full text of the Apache License 2.0 for the complete terms and conditions.
-
-    (Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0)
-    ----------------------------------------------------------------------------
+/*
+==============================================================================
+Author: Michael Gene Brockus (Dreamer)
+Email: michaelbrockus@gmail.com
+Organization: Fossil Logic
+Description: 
+    This file is part of the Fossil Logic project, where innovation meets
+    excellence in software development. Michael Gene Brockus, also known as
+    "Dreamer," is a dedicated contributor to this project. For any inquiries,
+    feel free to contact Michael at michaelbrockus@gmail.com.
+==============================================================================
 */
-#include "trilobite/xstring/number.h"
+#include "fossil/xstring/number.h"
 #include <string.h>
 #include <ctype.h>
 
@@ -67,7 +48,7 @@ NumberMapping powersOfTen[] = {
     {"thousand", 1000}, {"million", 1000000}, {"billion", 1000000000}, {"trillion", 1000000000000}
 };
 
-int tscl_string_number_to_numeric(cstring number) {
+int fscl_string_number_to_numeric(cstring number) {
     int total = 0;
     int currentNumber = 0;
 
@@ -119,7 +100,7 @@ int tscl_string_number_to_numeric(cstring number) {
     return total;
 }
 
-int tscl_string_expression_to_numeric(cstring expression) {
+int fscl_string_expression_to_numeric(cstring expression) {
     // Convert a written expression to a numeric value
     // Assumes a simple expression without parentheses
     
@@ -133,7 +114,7 @@ int tscl_string_expression_to_numeric(cstring expression) {
     for (size_t i = 0; i <= len; ++i) {
         if (i == len || isspace((unsigned char)expression[i])) {
             // Handle the end of the expression or space
-            int numericValue = tscl_string_number_to_numeric(expression + i - currentPriority);
+            int numericValue = fscl_string_number_to_numeric(expression + i - currentPriority);
             
             if (currentOperator[0] == '+') {
                 result += numericValue;
@@ -177,7 +158,7 @@ int tscl_string_expression_to_numeric(cstring expression) {
     return result;
 }
 
-cstring tscl_string_number_from_numeric(int number) {
+cstring fscl_string_number_from_numeric(int number) {
     // Implementation of converting numeric values to English words is more complex
     // and may require additional logic based on your specific requirements.
     // This example includes only basic handling for numbers less than 100.

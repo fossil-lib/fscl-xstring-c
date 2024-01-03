@@ -1,46 +1,27 @@
-/*  ----------------------------------------------------------------------------
-    File: string.c
-
-    Description:
-    This source file contains the code entry point for the Trilobite Stdlib project.
-    It demonstrates the usage of various utilities and functions provided by the
-    Trilobite Stdlib to enhance software development.
-
-    Author: Michael Gene Brockus (Dreamer)
-    Email: michaelbrockus@gmail.com
-    Website: [Trilobite Coder Blog](https://trilobite.home.blog)
-
-    Project: Trilobite Stdlib
-
-    License: Apache License 2.0
-    SPDX Identifier: Apache-2.0
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
-
-    Unless required by applicable law or agreed to in writing, software distributed under the License
-    is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-    or implied. See the License for the specific language governing permissions and limitations
-    under the License.
-
-    Please review the full text of the Apache License 2.0 for the complete terms and conditions.
-
-    (Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0)
-    ----------------------------------------------------------------------------
+/*
+==============================================================================
+Author: Michael Gene Brockus (Dreamer)
+Email: michaelbrockus@gmail.com
+Organization: Fossil Logic
+Description: 
+    This file is part of the Fossil Logic project, where innovation meets
+    excellence in software development. Michael Gene Brockus, also known as
+    "Dreamer," is a dedicated contributor to this project. For any inquiries,
+    feel free to contact Michael at michaelbrockus@gmail.com.
+==============================================================================
 */
-#include "trilobite/xstring/utility.h"
+#include "fossil/xstring/utility.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
 
-size_t tscl_string_length(const_cstring str) {
+size_t fscl_string_length(const_cstring str) {
     return (str != NULL) ? strlen(str) : 0;
 } // end of func
 
-cstring tscl_string_copy(const_cstring src) {
+cstring fscl_string_copy(const_cstring src) {
     if (src == NULL) {
         return NULL;
     }
@@ -56,7 +37,7 @@ cstring tscl_string_copy(const_cstring src) {
     return copy;
 } // end of func
 
-cstring tscl_string_concat(const_cstring str1, const_cstring str2) {
+cstring fscl_string_concat(const_cstring str1, const_cstring str2) {
     if (str1 == NULL || str2 == NULL) {
         return NULL;
     }
@@ -74,7 +55,7 @@ cstring tscl_string_concat(const_cstring str1, const_cstring str2) {
     return result;
 } // end of func
 
-int tscl_string_compare(const_cstring str1, const_cstring str2) {
+int fscl_string_compare(const_cstring str1, const_cstring str2) {
     if (str1 == NULL && str2 == NULL) {
         return 0;
     } else if (str1 == NULL || str2 == NULL) {
@@ -84,7 +65,7 @@ int tscl_string_compare(const_cstring str1, const_cstring str2) {
     }
 } // end of func
 
-cstring tscl_string_substr(const_cstring str, size_t start, size_t length) {
+cstring fscl_string_substr(const_cstring str, size_t start, size_t length) {
     if (str == NULL || start >= strlen(str)) {
         return NULL;
     }
@@ -99,7 +80,7 @@ cstring tscl_string_substr(const_cstring str, size_t start, size_t length) {
     return substr;
 } // end of func
 
-int tscl_string_find(const_cstring str, const_cstring substr) {
+int fscl_string_find(const_cstring str, const_cstring substr) {
     if (str == NULL || substr == NULL) {
         return -1;
     }
@@ -108,7 +89,7 @@ int tscl_string_find(const_cstring str, const_cstring substr) {
     return (result != NULL) ? (int)(result - str) : -1;
 } // end of func
 
-int tscl_string_rfind(const_cstring str, const_cstring substr) {
+int fscl_string_rfind(const_cstring str, const_cstring substr) {
     if (str == NULL || substr == NULL) {
         return -1;
     }
@@ -117,13 +98,13 @@ int tscl_string_rfind(const_cstring str, const_cstring substr) {
     return (result != NULL) ? (int)(result - str) : -1;
 } // end of func
 
-cstring* tscl_string_split(const_cstring str, const_cstring delimiter) {
+cstring* fscl_string_split(const_cstring str, const_cstring delimiter) {
     if (str == NULL || delimiter == NULL) {
         return NULL;
     }
 
     size_t count = 0;
-    cstring str_copy = tscl_string_copy(str);
+    cstring str_copy = fscl_string_copy(str);
     if (str_copy == NULL) {
         return NULL; // Memory allocation failed
     }
@@ -143,11 +124,11 @@ cstring* tscl_string_split(const_cstring str, const_cstring delimiter) {
     size_t i = 0;
     token = strtok(str_copy, delimiter);
     while (token) {
-        result[i] = tscl_string_copy(token);
+        result[i] = fscl_string_copy(token);
         if (result[i] == NULL) {
             // Memory allocation failed, free previous allocations and return NULL
             for (size_t j = 0; j < i; j++) {
-                tscl_string_erase(result[j]);
+                fscl_string_erase(result[j]);
             }
             free(result);
             free(str_copy);
@@ -162,7 +143,7 @@ cstring* tscl_string_split(const_cstring str, const_cstring delimiter) {
     return result;
 } // end of func
 
-cstring tscl_string_to_upper(const_cstring str) {
+cstring fscl_string_to_upper(const_cstring str) {
     if (str == NULL) {
         return NULL;
     }
@@ -181,7 +162,7 @@ cstring tscl_string_to_upper(const_cstring str) {
     return upper;
 } // end of func
 
-cstring tscl_string_to_lower(const_cstring str) {
+cstring fscl_string_to_lower(const_cstring str) {
     if (str == NULL) {
         return NULL;
     }
@@ -200,7 +181,7 @@ cstring tscl_string_to_lower(const_cstring str) {
     return lower;
 } // end of func
 
-cstring tscl_string_trim(const_cstring str) {
+cstring fscl_string_trim(const_cstring str) {
     if (str == NULL) {
         return NULL;
     }
@@ -228,7 +209,7 @@ cstring tscl_string_trim(const_cstring str) {
     return trimmed;
 } // end of func
 
-cstring tscl_string_replace(cstring str, const_cstring find, const_cstring replace) {
+cstring fscl_string_replace(cstring str, const_cstring find, const_cstring replace) {
     if (str == NULL || find == NULL || replace == NULL) {
         return NULL;
     }
@@ -272,7 +253,7 @@ cstring tscl_string_replace(cstring str, const_cstring find, const_cstring repla
 } // end of func
 
 // Function to reverse a string
-cstring tscl_string_reverse(const_cstring str) {
+cstring fscl_string_reverse(const_cstring str) {
     size_t length = strlen(str);
     cstring reversed = (cstring)malloc((length + 1) * sizeof(char));
 
@@ -291,7 +272,7 @@ cstring tscl_string_reverse(const_cstring str) {
 } // end of func
 
 // Function to shuffle a string
-cstring tscl_string_shuffle(const_cstring str) {
+cstring fscl_string_shuffle(const_cstring str) {
     size_t length = strlen(str);
     cstring shuffled = malloc((length + 1) * sizeof(char)); // Allocate memory
 
@@ -315,7 +296,7 @@ cstring tscl_string_shuffle(const_cstring str) {
 } // end of func
 
 // Function to make a string silly (e.g., uppercase vowels)
-cstring tscl_string_make_silly(const_cstring str) {
+cstring fscl_string_make_silly(const_cstring str) {
     size_t length = strlen(str);
     cstring silly = (cstring)malloc((length + 1) * sizeof(char));
 
@@ -344,7 +325,7 @@ cstring tscl_string_make_silly(const_cstring str) {
 } // end of func
 
 // Custom version of strdup for a string library
-cstring tscl_string_strdup(const_cstring str) {
+cstring fscl_string_strdup(const_cstring str) {
     size_t length = strlen(str);
     cstring duplicate = (cstring)malloc((length + 1) * sizeof(char));
 
@@ -359,7 +340,7 @@ cstring tscl_string_strdup(const_cstring str) {
 } // end of func
 
 // Check if a string starts with a specified prefix.
-int tscl_string_starts_with(const_cstring str, const_cstring prefix) {
+int fscl_string_starts_with(const_cstring str, const_cstring prefix) {
     size_t str_len = strlen(str);
     size_t prefix_len = strlen(prefix);
 
@@ -371,7 +352,7 @@ int tscl_string_starts_with(const_cstring str, const_cstring prefix) {
 } // end of func
 
 // Check if a string ends with a specified suffix.
-int tscl_string_ends_with(const_cstring str, const_cstring suffix) {
+int fscl_string_ends_with(const_cstring str, const_cstring suffix) {
     size_t str_len = strlen(str);
     size_t suffix_len = strlen(suffix);
 
@@ -383,7 +364,7 @@ int tscl_string_ends_with(const_cstring str, const_cstring suffix) {
 } // end of func
 
 // Pad a string with a specified character to reach a certain length.
-cstring tscl_string_pad(const_cstring str, size_t length, char padding_char) {
+cstring fscl_string_pad(const_cstring str, size_t length, char padding_char) {
     size_t str_len = strlen(str);
 
     if (length <= str_len) {
@@ -418,7 +399,7 @@ cstring tscl_string_pad(const_cstring str, size_t length, char padding_char) {
 } // end of func
 
 // Remove all occurrences of a specified character from a string.
-cstring tscl_string_remove_char(const_cstring str, char char_to_remove) {
+cstring fscl_string_remove_char(const_cstring str, char char_to_remove) {
     size_t str_len = strlen(str);
 
     cstring result = (cstring)malloc((str_len + 1) * sizeof(char));
@@ -443,7 +424,7 @@ cstring tscl_string_remove_char(const_cstring str, char char_to_remove) {
 } // end of func
 
 // Count occurrences of a substring in a string.
-size_t tscl_string_count_substring(cstring str, const_cstring substr) {
+size_t fscl_string_count_substring(cstring str, const_cstring substr) {
     size_t count = 0;
     size_t substr_len = strlen(substr);
     cstring pos = str;
@@ -457,7 +438,7 @@ size_t tscl_string_count_substring(cstring str, const_cstring substr) {
 } // end of func
 
 // Reverse words in a string.
-cstring tscl_string_reverse_words(const_cstring str) {
+cstring fscl_string_reverse_words(const_cstring str) {
     size_t str_len = strlen(str);
 
     cstring reversed_words = (cstring)malloc((str_len + 1) * sizeof(char));
@@ -490,7 +471,7 @@ cstring tscl_string_reverse_words(const_cstring str) {
 } // end of func
 
 // Convert a string to title case.
-cstring tscl_string_to_title_case(const_cstring str) {
+cstring fscl_string_to_title_case(const_cstring str) {
     size_t str_len = strlen(str);
 
     cstring title_case = (cstring)malloc((str_len + 1) * sizeof(char));
@@ -521,7 +502,7 @@ cstring tscl_string_to_title_case(const_cstring str) {
 } // end of func
 
 // Remove consecutive duplicate characters from a string.
-cstring tscl_string_remove_consecutive_duplicates(const_cstring str) {
+cstring fscl_string_remove_consecutive_duplicates(const_cstring str) {
     size_t str_len = strlen(str);
 
     cstring without_duplicates = (cstring)malloc((str_len + 1) * sizeof(char));
@@ -545,7 +526,7 @@ cstring tscl_string_remove_consecutive_duplicates(const_cstring str) {
 } // end of func
 
 // Replace multiple consecutive spaces with a single space.
-cstring tscl_string_remove_extra_spaces(const_cstring str) {
+cstring fscl_string_remove_extra_spaces(const_cstring str) {
     size_t str_len = strlen(str);
 
     cstring without_extra_spaces = (cstring)malloc((str_len + 1) * sizeof(char));

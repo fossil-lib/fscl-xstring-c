@@ -1,35 +1,16 @@
-/*  ----------------------------------------------------------------------------
-    File: wygstring.c
-
-    Description:
-    This source file contains the code entry point for the Trilobite Stdlib project.
-    It demonstrates the usage of various utilities and functions provided by the
-    Trilobite Stdlib to enhance software development.
-
-    Author: Michael Gene Brockus (Dreamer)
-    Email: michaelbrockus@gmail.com
-    Website: [Trilobite Coder Blog](https://trilobite.home.blog)
-
-    Project: Trilobite Stdlib
-
-    License: Apache License 2.0
-    SPDX Identifier: Apache-2.0
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
-
-    Unless required by applicable law or agreed to in writing, software distributed under the License
-    is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
-    or implied. See the License for the specific language governing permissions and limitations
-    under the License.
-
-    Please review the full text of the Apache License 2.0 for the complete terms and conditions.
-
-    (Apache License 2.0: http://www.apache.org/licenses/LICENSE-2.0)
-    ----------------------------------------------------------------------------
+/*
+==============================================================================
+Author: Michael Gene Brockus (Dreamer)
+Email: michaelbrockus@gmail.com
+Organization: Fossil Logic
+Description: 
+    This file is part of the Fossil Logic project, where innovation meets
+    excellence in software development. Michael Gene Brockus, also known as
+    "Dreamer," is a dedicated contributor to this project. For any inquiries,
+    feel free to contact Michael at michaelbrockus@gmail.com.
+==============================================================================
 */
-#include "trilobite/xstring/wygstring.h"
+#include "fossil/xstring/wygstring.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,7 +19,7 @@
 // Adjust the size as needed
 enum {TAG_LENGTH = 3};
 
-cwygstring* tscl_wygstring_create(const char* text) {
+cwygstring* fscl_wygstring_create(const char* text) {
     if (text == NULL) {
         return NULL;
     }
@@ -60,7 +41,7 @@ cwygstring* tscl_wygstring_create(const char* text) {
     return NULL;
 } // end of func
 
-void tscl_wygstring_set_text(cwygstring* wygstring, const char* text) {
+void fscl_wygstring_set_text(cwygstring* wygstring, const char* text) {
     if (wygstring) {
         free(wygstring->text);
         wygstring->text = (char*)malloc(strlen(text) + 1);
@@ -74,18 +55,18 @@ void tscl_wygstring_set_text(cwygstring* wygstring, const char* text) {
     }
 } // end of func
 
-const char* tscl_wygstring_get_text(const cwygstring* wygstring) {
+const char* fscl_wygstring_get_text(const cwygstring* wygstring) {
     return (wygstring) ? wygstring->text : NULL;
 } // end of func
 
-void tscl_wygstring_erase(cwygstring* wygstring) {
+void fscl_wygstring_erase(cwygstring* wygstring) {
     if (wygstring) {
         free(wygstring->text);
         free(wygstring);
     }
 } // end of func
 
-void tscl_wygstring_append_text(cwygstring* wygstring, const char* text_to_append) {
+void fscl_wygstring_append_text(cwygstring* wygstring, const char* text_to_append) {
     if (wygstring) {
         wygstring->text = (char*)realloc(wygstring->text, wygstring->length + strlen(text_to_append) + 1);
         
@@ -98,7 +79,7 @@ void tscl_wygstring_append_text(cwygstring* wygstring, const char* text_to_appen
     }
 } // end of func
 
-void tscl_wygstring_insert_text(cwygstring* wygstring, int position, const char* text_to_insert) {
+void fscl_wygstring_insert_text(cwygstring* wygstring, int position, const char* text_to_insert) {
     if (wygstring) {
         if (position >= 0 && position <= wygstring->length) {
             wygstring->text = (char*)realloc(wygstring->text, wygstring->length + strlen(text_to_insert) + 1);
@@ -114,7 +95,7 @@ void tscl_wygstring_insert_text(cwygstring* wygstring, int position, const char*
     }
 } // end of func
 
-void tscl_wygstring_make_formatting(cwygstring* wygstring, int start, int end, const char* tag) {
+void fscl_wygstring_make_formatting(cwygstring* wygstring, int start, int end, const char* tag) {
     if (wygstring && start >= 0 && end >= start && end <= wygstring->length) {
         char* newText = (char*)realloc(wygstring->text, wygstring->length + 2 * TAG_LENGTH + 1);
         
@@ -140,23 +121,23 @@ void tscl_wygstring_make_formatting(cwygstring* wygstring, int start, int end, c
     }
 } // end of func
 
-void tscl_wygstring_make_bold(cwygstring* wygstring, int start, int end) {
-    tscl_wygstring_make_formatting(wygstring, start, end, "<b>");
+void fscl_wygstring_make_bold(cwygstring* wygstring, int start, int end) {
+    fscl_wygstring_make_formatting(wygstring, start, end, "<b>");
 } // end of func
 
-void tscl_wygstring_make_italic(cwygstring* wygstring, int start, int end) {
-    tscl_wygstring_make_formatting(wygstring, start, end, "<i>");
+void fscl_wygstring_make_italic(cwygstring* wygstring, int start, int end) {
+    fscl_wygstring_make_formatting(wygstring, start, end, "<i>");
 } // end of func
 
-void tscl_wygstring_make_underlined(cwygstring* wygstring, int start, int end) {
-    tscl_wygstring_make_formatting(wygstring, start, end, "<u>");
+void fscl_wygstring_make_underlined(cwygstring* wygstring, int start, int end) {
+    fscl_wygstring_make_formatting(wygstring, start, end, "<u>");
 } // end of func
 
-int tscl_wygstring_compare(const cwygstring* str1, const cwygstring* str2) {
+int fscl_wygstring_compare(const cwygstring* str1, const cwygstring* str2) {
     return (str1 && str2) ? strcmp(str1->text, str2->text) : -1;
 } // end of func
 
-void tscl_wygstring_concat(cwygstring* dest, const cwygstring* src) {
+void fscl_wygstring_concat(cwygstring* dest, const cwygstring* src) {
     if (dest && src) {
         dest->text = (char*)realloc(dest->text, dest->length + src->length + 1);
         
@@ -169,20 +150,20 @@ void tscl_wygstring_concat(cwygstring* dest, const cwygstring* src) {
     }
 } // end of func
 
-cwygstring* tscl_wygstring_copy(const cwygstring* wygstring) {
+cwygstring* fscl_wygstring_copy(const cwygstring* wygstring) {
     if (wygstring) {
-        return tscl_wygstring_create(wygstring->text);
+        return fscl_wygstring_create(wygstring->text);
     }
 
     return NULL;
 } // end of func
 
-int tscl_wygstring_length(const cwygstring* wygstring) {
+int fscl_wygstring_length(const cwygstring* wygstring) {
     return (wygstring) ? wygstring->length : 0;
 } // end of func
 
 // Function to trim leading and trailing whitespace characters from a cwygstring.
-void tscl_wygstring_trim(cwygstring* wygstring) {
+void fscl_wygstring_trim(cwygstring* wygstring) {
     if (wygstring == NULL || wygstring->text == NULL) {
         return; // Invalid input
     }
@@ -208,7 +189,7 @@ void tscl_wygstring_trim(cwygstring* wygstring) {
 } // end of func
 
 // Function to convert the text of a cwygstring to lowercase.
-void tscl_wygstring_to_lowercase(cwygstring* wygstring) {
+void fscl_wygstring_to_lowercase(cwygstring* wygstring) {
     if (wygstring == NULL || wygstring->text == NULL) {
         return; // Invalid input
     }
@@ -219,7 +200,7 @@ void tscl_wygstring_to_lowercase(cwygstring* wygstring) {
 } // end of func
 
 // Function to convert the text of a cwygstring to uppercase.
-void tscl_wygstring_to_uppercase(cwygstring* wygstring) {
+void fscl_wygstring_to_uppercase(cwygstring* wygstring) {
     if (wygstring == NULL || wygstring->text == NULL) {
         return; // Invalid input
     }
@@ -230,7 +211,7 @@ void tscl_wygstring_to_uppercase(cwygstring* wygstring) {
 } // end of func
 
 // Function to replace a specified portion of a cwygstring text with another text.
-void tscl_wygstring_replace_text(cwygstring* wygstring, int start, int end, const char* replacement) {
+void fscl_wygstring_replace_text(cwygstring* wygstring, int start, int end, const char* replacement) {
     if (wygstring == NULL || wygstring->text == NULL || replacement == NULL) {
         return; // Invalid input
     }
