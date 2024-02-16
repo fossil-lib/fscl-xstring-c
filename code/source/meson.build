@@ -1,7 +1,7 @@
 code = files(
     'cstring.c', 'letter.c', 'wygstring.c',
     'cipher.c', 'nlp.c', 'number.c',
-    'utility.c', 'color.c')
+    'utility.c', 'skittles.c')
 
 lib = static_library('fscl-xstring-c',
     code,
