@@ -33,19 +33,23 @@ extern "C"
 #define UNDERLINE "\x1b[4m"
 
 enum {
-    MAX_SKITTLE_LENGTH = 100
+    MAX_SKITTLE_LENGTH = 15
 };
 
 typedef struct {
-    char content[MAX_SKITTLE_LENGTH];
-    char color[15];
+    char *content;
+    char color[MAX_SKITTLE_LENGTH];
 } skittle;
+
+// =================================================================
+// Create and erase functions
+// =================================================================
+skittle fscl_skittle_create(const cstring content, const cstring color);
+void fscl_skittle_erase(skittle* s);
 
 // =================================================================
 // Available functions
 // =================================================================
-
-skittle fscl_skittle_create(const cstring content, const cstring color);
 void fscl_skittle_print(const skittle* s);
 skittle fscl_skittle_concat(const skittle* s1, const skittle* s2);
 skittle fscl_skittle_substr(const skittle* s, int start, int length);
