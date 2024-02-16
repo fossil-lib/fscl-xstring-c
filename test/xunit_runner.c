@@ -21,7 +21,6 @@ XTEST_EXTERN_POOL(test_fscl_wygstring_group);
 XTEST_EXTERN_POOL(test_fscl_cipher_group   );
 XTEST_EXTERN_POOL(test_number_group   );
 XTEST_EXTERN_POOL(test_color_group   );
-XTEST_EXTERN_POOL(test_nlp_group      );
 
 //
 // XUNIT-TEST RUNNER
@@ -35,7 +34,6 @@ int main(int argc, char **argv) {
     XTEST_IMPORT_POOL(test_letter_group);
     XTEST_IMPORT_POOL(test_number_group);
     XTEST_IMPORT_POOL(test_color_group);
-    XTEST_IMPORT_POOL(test_nlp_group);
 
     return XTEST_ERASE();
 } // end of func
