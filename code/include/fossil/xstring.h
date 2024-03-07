@@ -21,6 +21,7 @@ extern "C"
 #include "xstring/cstring.h"
 #include "xstring/letter.h"
 #include "xstring/cipher.h"
+#include "xstring/utility.h"
 #include "xstring/skittles.h"
 #include "xstring/wygstring.h"
 
