@@ -24,8 +24,29 @@ extern "C"
 // =================================================================
 // Available functions
 // =================================================================
+
+/**
+ * Convert a string representation of a number to its numeric value.
+ *
+ * @param number The string representation of the number.
+ * @return The numeric value.
+ */
 int fscl_string_number_to_numeric(cstring number);
+
+/**
+ * Evaluate a string expression and return the numeric result.
+ *
+ * @param expression The string expression to be evaluated.
+ * @return The numeric result of the expression.
+ */
 int fscl_string_expression_to_numeric(cstring expression);
+
+/**
+ * Convert a numeric value to its string representation.
+ *
+ * @param number The numeric value.
+ * @return The string representation of the number.
+ */
 cstring fscl_string_number_from_numeric(int number);
 
 #ifdef __cplusplus
