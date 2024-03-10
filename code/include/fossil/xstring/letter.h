@@ -27,7 +27,7 @@ typedef const char const_letter;
 // =================================================================
 // Available functions
 // =================================================================
-int/**
+/**
  * Check if a given letter is a vowel.
  *
  * @param c The letter to check.
